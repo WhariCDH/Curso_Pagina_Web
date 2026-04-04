@@ -41,6 +41,12 @@ nav a:hover {
     color: #facc15;
 }
 
+/* video */
+iframe {
+    display: block;
+    margin: 20px auto;
+}
+
 /* MAIN */
 main {
     padding: 20px;
