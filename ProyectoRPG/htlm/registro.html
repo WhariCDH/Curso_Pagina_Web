@@ -9,10 +9,11 @@
 
     <h1>Crear Cuenta</h1>
 
-    <form method="post">
+    <form method="get">
 
-        <fieldset>
-            <legend>Datos Personales</legend>
+        <fieldset> <!--Agrupa campos-->
+
+            <legend>Datos Personales</legend> <!--Texto de presentación-->
 
             <label>Nombre:</label><br>
             <input type="text" name="nombre" required><br><br>
@@ -33,8 +34,8 @@
         <fieldset>
             <legend>Preferencias</legend>
 
-            <label><input type="checkbox"> Noticias</label>
-            <label><input type="checkbox"> Ofertas</label>
+            <label><input type="checkbox">Actualizaciones</label> <!--Opcional-->
+            <label><input type="checkbox">Futuras noticias</label>
         </fieldset>
 
         <br>
