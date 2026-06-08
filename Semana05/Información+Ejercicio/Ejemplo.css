@@ -3,7 +3,7 @@
 h1 {
     color: red; /* cambia color del texto */
     background: yellow; /* fondo del texto */
-    text-align: center; /* centra el texto */
+    text-align: justify; /* centra el texto */
 }
 
 /* ✔ SELECTOR POR ID */
@@ -16,7 +16,7 @@ h1 {
 /* ✔ SELECTOR POR CLASE (EL MÁS USADO) */
 /* Aplica a todos los elementos con class="texto" */
 .texto {
-    color: green; /* color del texto */
+    color: rgb(0, 0, 0); /* color del texto */
     font-family: Arial; /* tipo de letra */
 }
 
