@@ -8,20 +8,20 @@ body {
     height: 100vh;
 
     /* ✔ Centramos todo con flexbox */
-    display: flex;
-    flex-direction: column;
+    display: flex;                    /*Activa los contenedores*/
+    flex-direction: column;             /*Ordena a los elelemtos hijos (header, mein, nav) uno debajo del otro*/
 }
 
 /********************************/
 /* 🎨 HEADER                   */
 /********************************/
 .header {
-    background: black;
-    color: white;
+    background: black;               /*Color fondo*/
+    color: white;                    /*Color letra*/
     text-align: center;
 
     /* ✔ vw → ocupa todo el ancho */
-    width: 100vw;
+    width: 100vw;                        /*Si esta en 50vw ocupa solo la mitad de la pantalla*/
 }
 
 /********************************/
@@ -30,10 +30,10 @@ body {
 .nav {
     display: flex; /* ✔ Activamos flexbox */
 
-    justify-content: space-around; 
+    justify-content: space-around;      /*Hace espacios parejos*/
     /* ✔ Espacio entre elementos (horizontal) */
 
-    align-items: center; 
+    align-items: center;                /*Cuando se minimice la pantalla en el medio las letras*/
     /* ✔ Centrado vertical */
 
     background: gray;
