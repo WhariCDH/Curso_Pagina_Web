@@ -71,12 +71,12 @@ body {
 /* 📦 CAJAS (ITEMS)            */
 /********************************/
 .caja {
-    background: lightblue;
+    background: rgb(0, 185, 247);
     margin: 10px;
     padding: 20px;
 
     /* ✔ Tamaño base */
-    flex-basis: 150px;
+    flex-basis: 150px;     /*Tamaño del cuadrado*/
 
     /* ✔ Permite crecer */
     flex-grow: 1;
@@ -91,14 +91,14 @@ body {
     background: orange;
 
     /* ✔ Cambia orden visual */
-    order: -1;
+    order: -1;                      /*Cmabia e orden establecido*/
 
     /* ✔ Se alinea diferente */
-    align-self: flex-start;
+    align-self: flex-start;        /*Separa el cuadrado a otro lado*/
 }
 
 /********************************/
-/* 📱 MEDIA QUERIES           */
+/* 📱 Diseño Responsive        */
 /********************************/
 
 /* ✔ Para tablets y celulares */
