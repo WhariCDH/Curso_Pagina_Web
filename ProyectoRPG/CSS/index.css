@@ -1,27 +1,28 @@
 /* RESET BÁSICO */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #0f172a, #1e293b);
-    color: #e2e8f0;
-    margin: 0;
+    font-family: Arial, sans-serf;                                   /*Tipo de letra*/
+    background: linear-gradient(to bottom, #0f172a, #1e293b);     /*Cambio de tono de color de arriba a abajo*/
+    color: #e2e8f0;                                                 /*Color*/
+    margin: 0;                                                        /*Ocupa toda la pantalla*/
 }
 
 /* HEADER */
+/* HEADER */
 header {
-    background: #020617;
-    text-align: center;
-    padding: 25px;
-    border-bottom: 3px solid #facc15;
+    background: #020617;                                        /* Color de fondo oscuro de respaldo mientras carga la imagen */
+    padding: 0;                                                   /* Elimina cualquier espacio interno para que el mapa toque los bordes */
+    margin: 0;                                                    /* Asegura que no haya separaciones con el navegador o el body */
+    overflow: hidden;                                             /* Corta de forma limpia cualquier imperfección de la imagen en los bordes */
+    border-bottom: 3px solid #facc15;                           /* Mantiene la línea amarilla decorativa justo debajo del mapa */
 }
 
-header h1 {
-    margin: 0;
-    color: #facc15;
+/* ESTILOS DEL BANNER PIXELADO */
+.banner-header {
+    display: block;                                               /* Elimina el espacio fantasma de abajo*/
+    width: 100%;                                                  /* Obliga a la imagen a estirarse horizontalmente ocupando toda la pantalla y no solo la mitad*/
+    height: auto;                                             /* Calcula la altura de forma automática para que el mapa jamás se deforme o se aplaste */
 }
 
-header p {
-    margin: 5px 0 0;
-}
 
 /* NAV */
 nav {
@@ -43,8 +44,17 @@ nav a:hover {
 
 /* video */
 iframe {
-    display: block;
-    margin: 20px auto;
+    display: block;         /* Convierte el iframe en un elemento de bloque */
+    margin: 20px auto;      /*Centra el video agregando espacio a su alrededor*/
+
+    width: 100%;            /* Ocupa todo el ancho disponible del contenedor */
+    max-width: 1200px;      /* Limita el ancho máximo del video a 1200px */
+
+    height: auto;           /* La altura se ajusta automáticamente */
+    aspect-ratio: 16/9;     /* Mantiene la proporción panorámica 16:9 tipo video yt*/
+
+    border: none;           /* Elimina cualquier borde alrededor del video */
+    
 }
 
 /* MAIN */

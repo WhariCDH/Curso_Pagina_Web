@@ -16,23 +16,23 @@ body{
 .banner{
 
     /* 50% del alto de la pantalla */
-    height:50vh;
+    height:30vh;
 
     /* 100% del ancho de la pantalla */
     width:100vw;
 
-    background-color: steelblue;
-    color:white;
+    background-color: steelblue;   /*Fondo*/
+    color:rgb(255, 255, 255);      /*Letra*/
 
     text-align:center;
 
     /* FLEXBOX para centrar contenido */
-    display:flex;
+    display:flex;                  /*Abrimos contenedor*/
 
-    justify-content:center;
+    justify-content:center;          /*Centra el contenido en el contenedor*/
     align-items:center;
 
-    flex-direction:column;
+    flex-direction:column;           /*Columna en orden*/
 }
 
 
@@ -44,17 +44,17 @@ body{
 
     display:flex;
 
-    justify-content:space-evenly;
+    justify-content:space-evenly;    /*Espacio en las letras del navegador*/
 
-    background:black;
+    background:black;              
 
-    padding:15px;
+    padding:15px;                    /*Tamaño de la altura del navegador*/
 }
 
 .menu a{
 
     color:white;
-    text-decoration:none;
+    text-decoration:none;           /*Tipo de letra*/
 }
 
 
@@ -70,7 +70,7 @@ body{
     flex-direction:row;
 
     /* Permite saltar a otra línea */
-    flex-wrap:wrap;
+    flex-wrap:wrap;                  /*Al disminuir la pantalla se acomodan en columna*/
 
     /* Atajo de direction + wrap */
     /* flex-flow: row wrap; */
@@ -91,20 +91,20 @@ body{
 
     background:white;
 
-    width:250px;
+    width:250px;                        /*Define el ancho de la tarjeta*/
 
-    margin:10px;
+    margin:10px;                        /*Distancia de la tarjeta*/
 
-    padding:20px;
+    padding:20px;                       /*Tamaño de la targeta*/
 
-    border-radius:10px;
+    border-radius:10px;                 /*Redonde las esquinas*/
 
-    box-shadow:0px 0px 10px gray;
+    box-shadow:0px 0px 10px rgb(255, 0, 0);     /*Color del marco*/
 
-    text-align:center;
+    text-align:center;                  /*Centra al medio*/
 
     /* Tamaño inicial */
-    flex-basis:250px;
+    flex-basis:250px;                   /*Tamaño al encoger*/
 
     /* Puede crecer */
     flex-grow:1;
@@ -146,7 +146,7 @@ body{
 @media (max-width:768px){
 
     body{
-        background-color: lightblue;
+        background-color: lightblue;      /*Cambia el color al encoger*/
     }
 
     .menu{
