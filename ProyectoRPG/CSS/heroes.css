@@ -1,0 +1,112 @@
+/* RESET BÁSICO */
+body {
+    font-family: Arial, sans-serf;                                   /*Tipo de letra*/
+    background: linear-gradient(to bottom, #0f172a, #1e293b);     /*Cambio de tono de color de arriba a abajo*/
+    color: #e2e8f0;                                                 /*Color*/
+    margin: 0;                                                        /*Ocupa toda la pantalla*/
+}
+
+/* HEADER */
+/* HEADER */
+header {
+    background: #020617;                                        /* Color de fondo oscuro de respaldo mientras carga la imagen */
+    padding: 0;                                                   /* Elimina cualquier espacio interno para que el mapa toque los bordes */
+    margin: 0;                                                    /* Asegura que no haya separaciones con el navegador o el body */
+    overflow: hidden;                                             /* Corta de forma limpia cualquier imperfección de la imagen en los bordes */
+    border-bottom: 3px solid #facc15;                           /* Mantiene la línea amarilla decorativa justo debajo del mapa */
+}
+
+/* ESTILOS DEL BANNER PIXELADO */
+.banner-header {
+    display: block;                                               /* Elimina el espacio fantasma de abajo*/
+    width: 100%;                                                  /* Obliga a la imagen a estirarse horizontalmente ocupando toda la pantalla y no solo la mitad*/
+    height: auto;                                             /* Calcula la altura de forma automática para que el mapa jamás se deforme o se aplaste */
+}
+
+/***************************************************************************************/
+/* NAV */
+nav {
+    display: flex;                               /* Organiza elementos en fila */
+    align-items: center;                           /* Centra verticalmente */
+    background: #172033;                         /* Fondo azul oscuro */
+    padding: 15px;                                 /* Espacio interno */
+    border-top: 2px solid #facc15;               /* Borde dorado superior */
+    border-bottom: 2px solid #facc15;            /* Borde dorado inferior */
+    box-shadow: 0 0 15px rgba(250,204,21,0.3);   /* Brillo dorado */
+    gap: 10px;                                     /* Espacio entre elementos */
+}
+
+/* BOTONES DEL MENÚ */
+nav a {
+    display: inline-flex;              /* Comportamiento flexible */
+    justify-content: center;           /* Centra horizontalmente */
+    align-items: center;               /* Centra verticalmente */
+
+    width: 120px;                      /* Mismo ancho para todos */
+    height: 45px;                      /* Misma altura para todos */
+
+    background: #25314d;               /* Fondo del botón */
+    border: 2px solid #ffffff;         /* Borde blanco */
+
+    color: white;                      /* Color del texto */
+    text-decoration: none;             /* Quita subrayado */
+    font-weight: bold;                 /* Texto en negrita */
+
+    border-radius: 8px;                /* Bordes redondeados */
+
+    transition: all 0.3s ease;         /* Animación suave */
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+nav a:hover {
+    background: #facc15;               /* Fondo dorado */
+    color: #020617;                    /* Texto oscuro */
+    box-shadow: 0 0 10px #facc15;      /* Brillo */
+    transform: translateY(-3px);         /* Se eleva un poco */
+}
+
+/* CONTENEDOR DEL BUSCADOR */
+.busqueda {
+    margin-left: auto;                   /* Lo envía a la derecha */
+    display: flex;                     /* Input y botón en fila */
+}
+
+/* CAMPO DE BÚSQUEDA */
+.busqueda input {
+    padding: 10px;                       /* Espacio interno */
+    border: 2px solid #facc15;         /* Borde dorado */
+    border-radius: 8px 0 0 8px;          /* Redondea lado izquierdo */
+    outline: none;                       /* Elimina borde azul al seleccionar */
+}
+
+/* BOTÓN DE BÚSQUEDA */
+.busqueda button {
+    background: #facc15;               /* Fondo dorado */
+    border: none;                        /* Sin borde */
+    padding: 10px 15px;                  /* Tamaño */
+    border-radius: 0 8px 8px 0;          /* Redondea lado derecho */
+    cursor: pointer;                     /* Cursor tipo mano */
+}
+
+/* BOTÓN LOGIN */
+.login {
+    width: 100px;                      /* Ancho personalizado */
+}
+
+/***************************************************************************************/
+
+/* RESPONSIVE PARA TABLET Y MÓVIL */
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;        /* Menú vertical */
+    }
+
+    .busqueda {
+        margin-left: 0;                /* Quita alineación derecha */
+    }
+
+    nav a {
+        width: 220px;                  /* Botones más grandes */
+    }
+}
