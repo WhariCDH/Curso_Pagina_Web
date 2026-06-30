@@ -26,87 +26,173 @@ header {
 /***************************************************************************************/
 /* NAV */
 nav {
-    display: flex;                               /* Organiza elementos en fila */
-    align-items: center;                           /* Centra verticalmente */
-    background: #172033;                         /* Fondo azul oscuro */
-    padding: 15px;                                 /* Espacio interno */
-    border-top: 2px solid #facc15;               /* Borde dorado superior */
-    border-bottom: 2px solid #facc15;            /* Borde dorado inferior */
-    box-shadow: 0 0 15px rgba(250,204,21,0.3);   /* Brillo dorado */
-    gap: 10px;                                     /* Espacio entre elementos */
+    position: sticky;                          /* La barra se queda fija arriba al hacer scroll */
+    top: 0;
+    z-index: 100;                              /* Siempre por encima del contenido al hacer scroll */
+    background: #172033;
+    border-top: 2px solid #facc15;
+    border-bottom: 2px solid #facc15;
+    box-shadow: 0 0 15px rgba(250,204,21,0.3);
 }
 
-/* BOTONES DEL MENÚ */
-nav a {
-    display: inline-flex;              /* Comportamiento flexible */
-    justify-content: center;           /* Centra horizontalmente */
-    align-items: center;               /* Centra verticalmente */
-
-    width: 120px;                      /* Mismo ancho para todos */
-    height: 45px;                      /* Misma altura para todos */
-
-    background: #25314d;               /* Fondo del botón */
-    border: 2px solid #ffffff;         /* Borde blanco */
-
-    color: white;                      /* Color del texto */
-    text-decoration: none;             /* Quita subrayado */
-    font-weight: bold;                 /* Texto en negrita */
-
-    border-radius: 8px;                /* Bordes redondeados */
-
-    transition: all 0.3s ease;         /* Animación suave */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-/* EFECTO AL PASAR EL MOUSE */
-nav a:hover {
-    background: #facc15;               /* Fondo dorado */
-    color: #020617;                    /* Texto oscuro */
-    box-shadow: 0 0 10px #facc15;      /* Brillo */
-    transform: translateY(-3px);         /* Se eleva un poco */
+/* MARCA / LOGO */
+.nav-brand {
+    color: #facc15;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;                       /* Evita que "Kanterbury Days" se parta en dos líneas */
+}
+
+/* CONTENEDOR DE LINKS */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ÍCONOS DEL MENÚ — esto es lo que faltaba y causaba el ícono gigante */
+.nav-icon {
+    width: 20px;                               /* Tamaño fijo, igual de "alto" visual que un emoji */
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 6px;
+    border-radius: 0;                          /* Anula el "img { border-radius: 10px }" global, que es para fotos no íconos */
+}
+
+/* Asegura que ícono + texto de cada link queden alineados en una sola fila */
+.nav-links a {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+/* BOTONES DEL MENÚ — subrayado animado en vez de "salto" al hacer hover */
+.nav-links a:not(.login) {
+    position: relative;
+    padding: 10px 14px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.25s ease;
+}
+
+.nav-links a:not(.login)::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 14px;
+    right: 14px;
+    height: 2px;
+    background: #facc15;
+    transform: scaleX(0);                      /* Empieza "invisible" (ancho 0) */
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.nav-links a:not(.login):hover {
+    color: #facc15;
+}
+
+.nav-links a:not(.login):hover::after {
+    transform: scaleX(1);                      /* Se "dibuja" el subrayado de izquierda a derecha */
 }
 
 /* CONTENEDOR DEL BUSCADOR */
 .busqueda {
-    margin-left: auto;                   /* Lo envía a la derecha */
-    display: flex;                     /* Input y botón en fila */
+    display: flex;
+    margin: 0 10px;
 }
 
-/* CAMPO DE BÚSQUEDA */
 .busqueda input {
-    padding: 10px;                       /* Espacio interno */
-    border: 2px solid #facc15;         /* Borde dorado */
-    border-radius: 8px 0 0 8px;          /* Redondea lado izquierdo */
-    outline: none;                       /* Elimina borde azul al seleccionar */
+    padding: 8px 12px;
+    border: 2px solid #facc15;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+    background: #0f172a;
+    color: white;
 }
 
-/* BOTÓN DE BÚSQUEDA */
 .busqueda button {
-    background: #facc15;               /* Fondo dorado */
-    border: none;                        /* Sin borde */
-    padding: 10px 15px;                  /* Tamaño */
-    border-radius: 0 8px 8px 0;          /* Redondea lado derecho */
-    cursor: pointer;                     /* Cursor tipo mano */
+    background: #facc15;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
 }
 
-/* BOTÓN LOGIN */
+/* BOTÓN LOGIN — siempre dorado, no solo en hover, porque es la acción más importante del nav */
 .login {
-    width: 100px;                      /* Ancho personalizado */
+    background: #facc15;
+    color: #020617 !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.25s ease;
+}
+
+.login:hover {
+    background: #eab308;
+    box-shadow: 0 0 10px #facc15;
+}
+
+/* BOTÓN HAMBURGUESA (oculto en escritorio, solo aparece en pantallas chicas) */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.nav-toggle span {
+    width: 26px;
+    height: 3px;
+    background: #facc15;
+    border-radius: 2px;
+    transition: 0.3s ease;
 }
 
 /***************************************************************************************/
-
+/***************************************************************************************/
 /* RESPONSIVE PARA TABLET Y MÓVIL */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
 
-    nav {
-        flex-direction: column;        /* Menú vertical */
+    .nav-toggle {
+        display: flex;                          /* Aparece el botón hamburguesa */
+    }
+
+    .nav-links {
+        display: none;                          /* Se oculta el menú por defecto en móvil */
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 4px;
+    }
+
+    .nav-links.active {
+        display: flex;                          /* Se muestra cuando el JS agrega la clase "active" */
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
     }
 
     .busqueda {
-        margin-left: 0;                /* Quita alineación derecha */
-    }
-
-    nav a {
-        width: 220px;                  /* Botones más grandes */
+        margin: 8px 0;
     }
 }

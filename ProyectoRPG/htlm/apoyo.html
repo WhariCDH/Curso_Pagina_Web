@@ -18,25 +18,57 @@
 
     <!-- Menú de navegación -->
     <nav>
+        <div class="nav-container">
+            
+            
+            <!-- Marca / Logo --> 
+            <a href="index.html" class="nav-brand">
+                <img src="../Foto/index/Nvegador/Princess.png" alt="Princesita" class="nav-icon"> Kanterbury Days</a>
 
-        <!-- Opciones principales -->
-        <a href="index.html">🏠 Inicio</a>
-        <a href="heroes.html">⚔️ Héroes</a>
-        <a href="trajes.html">👕 Trajes</a>
-        <a href="guias.html">📖 Guías</a>
-        <a href="colecciones.html">🏆 Coleccion</a>
-        <a href="noticias.html">📰 Noticias</a>
-        <a href="apoyo.html">🤝 Apoyo</a>
+            <!-- Botón hamburguesa (solo visible en móvil) -->
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-        <!-- Buscador -->
-        <div class="busqueda">
-            <input type="text" placeholder="Buscar héroe...">
-            <button>🔍</button>
+            <!-- Contenedor colapsable -->
+            <div class="nav-links" id="navLinks">
+
+                <a href="index.html">
+                    <img src="../Foto/index/Nvegador/Home.png" alt="Casa" class="nav-icon"> Inicio</a>
+                <a href="heroes.html">
+                    <img src="../Foto/index/Nvegador/Sword.png" alt="Héroe" class="nav-icon"> Héroes</a>
+                <a href="trajes.html">
+                    <img src="../Foto/index/Nvegador/Clothes.png" alt="Trajes" class="nav-icon"> Trajes</a>
+                <a href="guias.html">
+                    <img src="../Foto/index/Nvegador/Guias.png" alt="Guías" class="nav-icon"> Guías</a>
+                <a href="colecciones.html">
+                    <img src="../Foto/index/Nvegador/Colección.png" alt="Colección" class="nav-icon"> Colección</a>
+                <a href="noticias.html">
+                    <img src="../Foto/index/Nvegador/News.png" alt="News" class="nav-icon"> Noticias</a>
+                <a href="apoyo.html">
+                    <img src="../Foto/index/Nvegador/Suport.png" alt="Apoyo" class="nav-icon"> Apoyo</a>
+
+                <div class="busqueda">
+                    <input type="text" placeholder="Buscar héroe...">
+                    <button>
+                        <img src="../Foto/index/Nvegador/Search.png" alt="Buscar" class="nav-icon"></button>
+                </div>
+
+                <a href="login.html" class="login">
+                    <img src="../Foto/index/Nvegador/User.png" alt="Persona" class="nav-icon"> Login</a>
+            </div>
         </div>
-
-        <!-- Login -->
-        <a href="login.html" class="login">👤 Login</a>
     </nav>
+
+    <script>
+        // Abre/cierra el menú en móvil al tocar el botón hamburguesa
+        document.getElementById('navToggle').addEventListener('click', function () {
+            document.getElementById('navLinks').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+    </script>
 
     <!-- Contenido principal -->
     <main>
