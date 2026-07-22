@@ -7,7 +7,6 @@ body {
 }
 
 /* HEADER */
-/* HEADER */
 header {
     background: #020617;                                        /* Color de fondo oscuro de respaldo mientras carga la imagen */
     padding: 0;                                                   /* Elimina cualquier espacio interno para que el mapa toque los bordes */
@@ -229,6 +228,56 @@ figure {
     vertical-align: top;
 }
 
+/***************************************************************************************/
+/* GRID DE CARACTERÍSTICAS — divide en 4 tarjetas iguales */
+.caracteristicas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);                          /* 4 columnas del mismo ancho */
+    gap: 16px;                                                       /* Espacio entre tarjetas */
+    margin-top: 16px;
+}
+
+/* CADA TARJETA */
+.caracteristica-card {
+    background: #0f172a;                                             /* Fondo ligeramente diferente al article */
+    border: 1px solid rgba(250, 204, 21, 0.2);                      /* Borde dorado sutil */
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;                                              /* Centra imagen, título y texto */
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Se eleva al pasar el mouse */
+.caracteristica-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+}
+
+/* IMAGEN DE CADA TARJETA */
+.caracteristica-card img {
+    width: 96px;                                                     /*Ancho del Tamaño del ícono */
+    height: 96px;                                                   /*Largo del tamaño del icono*/
+    object-fit: contain;                                             /* No deforma la imagen */
+    border-radius: 0;                                                /* Anula el border-radius global */
+    margin-bottom: 12px;
+}
+
+/* TÍTULO DE CADA TARJETA */
+.caracteristica-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+}
+
+/* TEXTO DE CADA TARJETA */
+.caracteristica-card p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: #94a3b8;                                                  /* Gris claro para no competir con el h3 dorado */
+    line-height: 1.5;
+}
+
+/***************************************************************************************/
+
 /* BOTÓN */
 button {
     background: #facc15;
@@ -276,5 +325,18 @@ footer {
 
     .busqueda {
         margin: 8px 0;
+    }
+
+     /* Características: 2 columnas en tablet */
+    .caracteristicas-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Características: 1 columna en móvil */
+    .caracteristicas-grid {
+        grid-template-columns: 1fr;
     }
 }
