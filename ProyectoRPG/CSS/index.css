@@ -1,92 +1,145 @@
-/* RESET BÁSICO */
+/* ================================================================ */
+/* 🎨 RESET Y ESTILOS GLOBALES                                     */
+/* ================================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* 📦 Incluye padding y border en el ancho total */
+}
+
 body {
-    font-family: Arial, sans-serf;                                   /*Tipo de letra*/
-    background: linear-gradient(to bottom, #0f172a, #1e293b);     /*Cambio de tono de color de arriba a abajo*/
-    color: #e2e8f0;                                                 /*Color*/
-    margin: 0;                                                        /*Ocupa toda la pantalla*/
+    font-family: 'Segoe UI', Arial, sans-serif;  /* 📝 Fuente moderna */
+    background: linear-gradient(135deg, #0a0f1e 0%, #1a2332 50%, #0f172a 100%);
+    color: #e2e8f0;
+    min-height: 100vh;
+    line-height: 1.6;  /* 📏 Mejor legibilidad */
 }
 
-/* HEADER */
+/* ================================================================ */
+/* 🏠 HEADER - BANNER PRINCIPAL                                    */
+/* ================================================================ */
+
 header {
-    background: #020617;                                        /* Color de fondo oscuro de respaldo mientras carga la imagen */
-    padding: 0;                                                   /* Elimina cualquier espacio interno para que el mapa toque los bordes */
-    margin: 0;                                                    /* Asegura que no haya separaciones con el navegador o el body */
-    overflow: hidden;                                             /* Corta de forma limpia cualquier imperfección de la imagen en los bordes */
-    border-bottom: 3px solid #facc15;                           /* Mantiene la línea amarilla decorativa justo debajo del mapa */
+    background: #020617;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    border-bottom: 4px solid #facc15;  /* 🟡 Línea dorada más gruesa */
+    box-shadow: 0 4px 20px rgba(250, 204, 21, 0.15);
 }
 
-/* ESTILOS DEL BANNER PIXELADO */
 .banner-header {
-    display: block;                                               /* Elimina el espacio fantasma de abajo*/
-    width: 100%;                                                  /* Obliga a la imagen a estirarse horizontalmente ocupando toda la pantalla y no solo la mitad*/
-    height: auto;                                             /* Calcula la altura de forma automática para que el mapa jamás se deforme o se aplaste */
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 400px;  /* 📏 Límite para pantallas grandes */
+    object-fit: cover;  /* 📐 La imagen cubre sin deformarse */
+    transition: transform 0.5s ease;  /* 🎬 Efecto suave al cargar */
 }
 
-/***************************************************************************************/
-/* NAV */
+/* ================================================================ */
+/* 🧭 NAVEGACIÓN - BARRA STICKY                                    */
+/* ================================================================ */
+
 nav {
-    position: sticky;                          /* La barra se queda fija arriba al hacer scroll */
+    position: sticky;
     top: 0;
-    z-index: 100;                              /* Siempre por encima del contenido al hacer scroll */
-    background: #172033;
+    z-index: 1000;  /* 📌 Muy por encima del contenido */
+    background: rgba(23, 32, 51, 0.95);  /* 🟫 Fondo semi-transparente */
+    backdrop-filter: blur(10px);  /* ✨ Efecto vidrio */
     border-top: 2px solid #facc15;
     border-bottom: 2px solid #facc15;
-    box-shadow: 0 0 15px rgba(250,204,21,0.3);
+    box-shadow: 0 4px 30px rgba(250, 204, 21, 0.2);
 }
 
 .nav-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 20px;
+    padding: 10px 24px;
     max-width: 1400px;
     margin: 0 auto;
+    gap: 16px;
 }
 
-/* MARCA / LOGO */
+/* ✅ MARCA / LOGO */
 .nav-brand {
-    color: #facc15;
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-decoration: none;
-    white-space: nowrap;                       /* Evita que "Kanterbury Days" se parta en dos líneas */
-}
-
-/* CONTENEDOR DE LINKS */
-.nav-links {
     display: flex;
     align-items: center;
     gap: 8px;
+    color: #facc15;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+}
+
+.nav-brand:hover {
+    transform: scale(1.05);  /* 🎬 Se agranda ligeramente */
+}
+
+.nav-brand img {
+    width: 28px;
+    height: 28px;
+}
+
+/* ✅ MENÚ PRINCIPAL */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
     flex-wrap: wrap;
 }
 
-/* ÍCONOS DEL MENÚ — esto es lo que faltaba y causaba el ícono gigante */
-.nav-icon {
-    width: 20px;                               /* Tamaño fijo, igual de "alto" visual que un emoji */
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 6px;
-    border-radius: 0;                          /* Anula el "img { border-radius: 10px }" global, que es para fotos no íconos */
+.nav-menu-items {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
 }
 
-/* Asegura que ícono + texto de cada link queden alineados en una sola fila */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 8px;
+}
+
+/* ✅ ÍCONOS DEL MENÚ */
+.nav-icon {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 4px;
+    border-radius: 0;
+    filter: brightness(0.9);
+    transition: filter 0.3s ease;
+}
+
+.nav-links a:hover .nav-icon {
+    filter: brightness(1.2);  /* 🎬 Se ilumina al pasar el mouse */
+}
+
+/* ✅ ENLACES DEL MENÚ */
 .nav-links a {
     display: inline-flex;
     align-items: center;
+    gap: 4px;
+    padding: 8px 14px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
     white-space: nowrap;
 }
 
-/* BOTONES DEL MENÚ — subrayado animado en vez de "salto" al hacer hover */
-.nav-links a:not(.login) {
-    position: relative;
-    padding: 10px 14px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.25s ease;
-}
-
-.nav-links a:not(.login)::after {
+/* ✅ SUBRAYADO ANIMADO */
+.nav-links a::after {
     content: '';
     position: absolute;
     bottom: 4px;
@@ -94,60 +147,95 @@ nav {
     right: 14px;
     height: 2px;
     background: #facc15;
-    transform: scaleX(0);                      /* Empieza "invisible" (ancho 0) */
-    transform-origin: left;
-    transition: transform 0.25s ease;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-links a:not(.login):hover {
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+.nav-links a:hover {
     color: #facc15;
+    background: rgba(250, 204, 21, 0.08);
 }
 
-.nav-links a:not(.login):hover::after {
-    transform: scaleX(1);                      /* Se "dibuja" el subrayado de izquierda a derecha */
+.nav-links a.active {
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.12);
 }
 
-/* CONTENEDOR DEL BUSCADOR */
+/* ✅ BUSCADOR */
 .busqueda {
     display: flex;
-    margin: 0 10px;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 8px;
+    border: 2px solid rgba(250, 204, 21, 0.3);
+    transition: all 0.3s ease;
+}
+
+.busqueda:focus-within {
+    border-color: #facc15;
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.2);
 }
 
 .busqueda input {
-    padding: 8px 12px;
-    border: 2px solid #facc15;
-    border-right: none;
+    padding: 8px 14px;
+    border: none;
     border-radius: 8px 0 0 8px;
     outline: none;
-    background: #0f172a;
+    background: transparent;
     color: white;
+    font-size: 0.9rem;
+    width: 160px;
+    transition: width 0.3s ease;
+}
+
+.busqueda input:focus {
+    width: 200px;  /* 📏 Se estira al enfocar */
+}
+
+.busqueda input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .busqueda button {
     background: #facc15;
     border: none;
-    padding: 8px 14px;
+    padding: 8px 12px;
     border-radius: 0 8px 8px 0;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* BOTÓN LOGIN — siempre dorado, no solo en hover, porque es la acción más importante del nav */
+.busqueda button:hover {
+    background: #eab308;
+    transform: scale(1.05);
+}
+
+/* ✅ BOTÓN LOGIN */
 .login {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     background: #facc15;
     color: #020617 !important;
-    padding: 8px 18px;
+    padding: 8px 20px;
     border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.25s ease;
+    font-weight: 700;
+    transition: all 0.3s ease;
 }
 
 .login:hover {
     background: #eab308;
-    box-shadow: 0 0 10px #facc15;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(250, 204, 21, 0.4);
 }
 
-/* BOTÓN HAMBURGUESA (oculto en escritorio, solo aparece en pantallas chicas) */
+/* ✅ BOTÓN HAMBURGUESA */
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -156,187 +244,792 @@ nav {
     border: none;
     cursor: pointer;
     padding: 8px;
+    z-index: 10;
 }
 
 .nav-toggle span {
-    width: 26px;
+    width: 28px;
     height: 3px;
     background: #facc15;
     border-radius: 2px;
     transition: 0.3s ease;
 }
 
-/***************************************************************************************/
-
-/* video */
-iframe {
-    display: block;         /* Convierte el iframe en un elemento de bloque */
-    margin: 20px auto;      /*Centra el video agregando espacio a su alrededor*/
-
-    width: 100%;            /* Ocupa todo el ancho disponible del contenedor */
-    max-width: 1200px;      /* Limita el ancho máximo del video a 1200px */
-
-    height: auto;           /* La altura se ajusta automáticamente */
-    aspect-ratio: 16/9;     /* Mantiene la proporción panorámica 16:9 tipo video yt*/
-
-    border: none;           /* Elimina cualquier borde alrededor del video */
-    
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
 }
 
-/* MAIN */
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================================================================ */
+/* 📚 MAIN - CONTENIDO PRINCIPAL                                   */
+/* ================================================================ */
+
 main {
-    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 24px;
 }
 
-/* ARTÍCULOS */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;  /* 🧹 Espacio entre artículos */
+}
+
+/* ✅ ARTÍCULOS */
 article {
-    background: #020617;
-    padding: 15px;
+    background: rgba(2, 6, 23, 0.85);
+    backdrop-filter: blur(5px);
+    padding: 32px 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(250, 204, 21, 0.1);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* ================================================================ */
+/* 📖 SECCIÓN HISTORIA                                             */
+/* ================================================================ */
+
+.historia-section {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    background: linear-gradient(135deg, rgba(2, 6, 23, 0.95), rgba(15, 23, 42, 0.9));
+}
+
+.historia-section::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(250, 204, 21, 0.08), transparent 70%);
+    pointer-events: none;
+}
+
+/* ✅ ETIQUETA DECORATIVA */
+.section-header {
     margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(250, 204, 21, 0.2);
 }
 
-/* TÍTULOS */
-h2 {
-    color: #38bdf8;
-    border-bottom: 2px solid #38bdf8;
-    padding-bottom: 5px;
-}
-
-h3 {
-    color: #facc15;
-}
-
-/* LISTAS */
-ul {
-    margin-top: 5px;
-}
-
-/* IMÁGENES */
-img {
-    width: 120px;
-    border-radius: 10px;
-}
-
-/* 👇 PERSONAJES EN FILA */
-figure {
+.section-label {
     display: inline-block;
-    width: 30%;
-    text-align: center;
-    margin: 10px 1%;
-    vertical-align: top;
+    background: rgba(250, 204, 21, 0.15);
+    color: #facc15;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(250, 204, 21, 0.3);
 }
 
-/***************************************************************************************/
-/* GRID DE CARACTERÍSTICAS — divide en 4 tarjetas iguales */
+/* ✅ CONTENIDO HISTORIA */
+.historia-content {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 8px 0;
+}
+
+.historia-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.historia-text h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #facc15, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    border: none;
+    padding: 0;
+}
+
+.historia-text p {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #e2e8f0;
+    margin-bottom: 16px;
+}
+
+.historia-text p:last-child {
+    margin-bottom: 0;
+}
+
+.historia-text p::first-letter {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #facc15;
+    float: left;
+    line-height: 0.9;
+    margin-right: 12px;
+    margin-top: 4px;
+}
+
+.historia-img {
+    flex: 1.2;
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 3px solid rgba(250, 204, 21, 0.3);
+    box-shadow: 0 8px 40px rgba(250, 204, 21, 0.15);
+    transition: all 0.4s ease;
+}
+
+.historia-img:hover {
+    transform: scale(1.02);
+    border-color: #facc15;
+    box-shadow: 0 12px 50px rgba(250, 204, 21, 0.25);
+}
+
+/* ================================================================ */
+/* 🎬 SECCIÓN VIDEO                                                */
+/* ================================================================ */
+
+.video-section {
+    text-align: center;
+}
+
+.video-section h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #facc15;
+    border: none;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.video-frame {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 12px;
+    background: rgba(2, 6, 23, 0.8);
+    border: 2px solid rgba(250, 204, 21, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(250, 204, 21, 0.15);
+    transition: all 0.4s ease;
+}
+
+.video-frame:hover {
+    border-color: #facc15;
+    box-shadow: 0 12px 50px rgba(250, 204, 21, 0.25);
+    transform: translateY(-4px);
+}
+
+.video-frame iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: auto;
+    border-radius: 12px;
+    border: none;
+}
+
+.video-description {
+    max-width: 800px;
+    margin: 24px auto 0;
+    text-align: left;
+}
+
+.video-description p {
+    line-height: 2;
+    color: #cbd5e1;
+    font-size: 1.05rem;
+}
+
+/* ================================================================ */
+/* ⭐ CARACTERÍSTICAS - GRID DE TARJETAS                          */
+/* ================================================================ */
+
+article h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #facc15;
+    border-bottom: 3px solid rgba(250, 204, 21, 0.3);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+}
+
 .caracteristicas-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);                          /* 4 columnas del mismo ancho */
-    gap: 16px;                                                       /* Espacio entre tarjetas */
-    margin-top: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
-/* CADA TARJETA */
 .caracteristica-card {
-    background: #0f172a;                                             /* Fondo ligeramente diferente al article */
-    border: 1px solid rgba(250, 204, 21, 0.2);                      /* Borde dorado sutil */
-    border-radius: 10px;
-    padding: 20px 16px;
-    text-align: center;                                              /* Centra imagen, título y texto */
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(250, 204, 21, 0.15);
+    border-radius: 16px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: default;
 }
 
-/* Se eleva al pasar el mouse */
 .caracteristica-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+    transform: translateY(-8px);
+    border-color: #facc15;
+    box-shadow: 0 12px 40px rgba(250, 204, 21, 0.2);
+    background: rgba(15, 23, 42, 0.95);
 }
 
-/* IMAGEN DE CADA TARJETA */
+.card-icon {
+    margin-bottom: 16px;
+}
+
 .caracteristica-card img {
-    width: 96px;                                                     /*Ancho del Tamaño del ícono */
-    height: 96px;                                                   /*Largo del tamaño del icono*/
-    object-fit: contain;                                             /* No deforma la imagen */
-    border-radius: 0;                                                /* Anula el border-radius global */
-    margin-bottom: 12px;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 0;
+    transition: transform 0.4s ease;
 }
 
-/* TÍTULO DE CADA TARJETA */
+.caracteristica-card:hover img {
+    transform: scale(1.1) rotate(-5deg);
+}
+
 .caracteristica-card h3 {
-    margin: 0 0 8px 0;
-    font-size: 1rem;
+    color: #facc15;
+    font-size: 1.1rem;
+    margin: 0 0 10px 0;
+    font-weight: 700;
 }
 
-/* TEXTO DE CADA TARJETA */
 .caracteristica-card p {
     margin: 0;
-    font-size: 0.88rem;
-    color: #94a3b8;                                                  /* Gris claro para no competir con el h3 dorado */
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+/* ================================================================ */
+/* 👥 PERSONAJES - GRID DE TARJETAS                               */
+/* ================================================================ */
+
+.personajes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.personaje-card {
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(250, 204, 21, 0.1);
+    transition: all 0.4s ease;
+}
+
+.personaje-card:hover {
+    transform: translateY(-8px);
+    border-color: #facc15;
+    box-shadow: 0 12px 40px rgba(250, 204, 21, 0.15);
+}
+
+.personaje-imagen {
+    padding: 20px;
+    background: rgba(2, 6, 23, 0.5);
+    text-align: center;
+}
+
+.personaje-imagen img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 0;
+    transition: transform 0.4s ease;
+}
+
+.personaje-card:hover .personaje-imagen img {
+    transform: scale(1.1);
+}
+
+.personaje-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.personaje-info h3 {
+    color: #facc15;
+    font-size: 1.1rem;
+    margin: 0 0 8px 0;
+}
+
+.personaje-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+/* ================================================================ */
+/* 🎮 MODOS DE JUEGO - LISTA MEJORADA                              */
+/* ================================================================ */
+
+.modos-lista {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modos-lista li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 12px;
+    border: 1px solid rgba(250, 204, 21, 0.08);
+    transition: all 0.3s ease;
+}
+
+.modos-lista li:hover {
+    background: rgba(15, 23, 42, 0.9);
+    border-color: rgba(250, 204, 21, 0.3);
+    transform: translateX(6px);
+}
+
+.modo-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+.modos-lista li strong {
+    color: #facc15;
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.modos-lista li p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #94a3b8;
     line-height: 1.5;
 }
 
-/***************************************************************************************/
+/* ================================================================ */
+/* 🚀 CTA - LLAMADO A LA ACCIÓN                                    */
+/* ================================================================ */
 
-/* BOTÓN */
-button {
-    background: #facc15;
-    border: none;
-    padding: 10px 15px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #eab308;
-}
-
-/* FOOTER */
-footer {
-    background: #020617;
+.cta-section {
+    background: linear-gradient(135deg, rgba(250, 204, 21, 0.08), rgba(250, 204, 21, 0.02));
+    border: 2px solid rgba(250, 204, 21, 0.2);
     text-align: center;
-    padding: 15px;
-    border-top: 2px solid #facc15;
+    padding: 48px 40px;
 }
 
-/* RESPONSIVE PARA TABLET Y MÓVIL */
-@media (max-width: 1100px) {
+.cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
 
+.cta-content h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #facc15;
+    border: none;
+    padding: 0;
+    margin-bottom: 12px;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 28px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #facc15;
+    color: #020617;
+    padding: 16px 36px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(250, 204, 21, 0.3);
+}
+
+.cta-button:hover {
+    background: #eab308;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 40px rgba(250, 204, 21, 0.4);
+}
+
+.cta-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .cta-arrow {
+    transform: translateX(6px);
+}
+
+/* ================================================================ */
+/* 📌 FOOTER - PIE DE PÁGINA                                      */
+/* ================================================================ */
+
+footer {
+    background: rgba(2, 6, 23, 0.95);
+    padding: 32px 24px;
+    border-top: 2px solid rgba(250, 204, 21, 0.2);
+    margin-top: 32px;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #facc15;
+}
+
+.footer-icon {
+    width: 24px;
+    height: 24px;
+}
+
+footer p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #facc15;
+}
+
+/* ================================================================ */
+/* 📱 RESPONSIVE - ADAPTACIÓN A PANTALLAS PEQUEÑAS                */
+/* ================================================================ */
+
+/* ✅ TABLET Y PANTALLAS MEDIANAS (hasta 1100px) */
+@media (max-width: 1100px) {
+    
+    /* BOTÓN HAMBURGUESA: Aparece */
     .nav-toggle {
-        display: flex;                          /* Aparece el botón hamburguesa */
+        display: flex;
     }
 
+    /* MENÚ: Se oculta y se muestra en columna */
     .nav-links {
-        display: none;                          /* Se oculta el menú por defecto en móvil */
+        display: none;
         flex-direction: column;
         align-items: stretch;
         width: 100%;
+        padding: 12px 0;
         gap: 4px;
+        border-top: 1px solid rgba(250, 204, 21, 0.1);
+        margin-top: 12px;
     }
 
     .nav-links.active {
-        display: flex;                          /* Se muestra cuando el JS agrega la clase "active" */
+        display: flex;
     }
 
-    .nav-container {
-        flex-wrap: wrap;
+    .nav-menu-items {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-actions {
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        gap: 8px;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 10px 16px;
+        justify-content: flex-start;
+    }
+
+    .nav-links a::after {
+        display: none;
     }
 
     .busqueda {
-        margin: 8px 0;
+        width: 100%;
     }
 
-     /* Características: 2 columnas en tablet */
+    .busqueda input {
+        width: 100%;
+        flex: 1;
+    }
+
+    .busqueda input:focus {
+        width: 100%;
+    }
+
+    .login {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* ✅ CONTENIDO: Ajustes de espaciado */
+    main {
+        padding: 20px 16px;
+    }
+
+    article {
+        padding: 24px 20px;
+    }
+
+    /* ✅ HISTORIA: Se vuelve vertical */
+    .historia-content {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .historia-img {
+        max-width: 100%;
+        aspect-ratio: 16/9;
+    }
+
+    /* ✅ CARACTERÍSTICAS: 2 columnas */
     .caracteristicas-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* ✅ PERSONAJES: 2 columnas */
+    .personajes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ✅ MODOS: 1 columna */
+    .modos-lista {
+        grid-template-columns: 1fr;
+    }
+
+    /* ✅ VIDEO */
+    .video-frame {
+        max-width: 100%;
+    }
+
+    .video-section h2 {
+        font-size: 1.8rem;
+    }
 }
 
+/* ✅ MÓVIL PEQUEÑO (hasta 480px) */
 @media (max-width: 480px) {
-
-    /* Características: 1 columna en móvil */
+    
+    /* ✅ CARACTERÍSTICAS: 1 columna */
     .caracteristicas-grid {
         grid-template-columns: 1fr;
     }
+
+    /* ✅ PERSONAJES: 1 columna */
+    .personajes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* ✅ HISTORIA: Títulos más pequeños */
+    .historia-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .historia-text p {
+        font-size: 1rem;
+    }
+
+    .historia-text p::first-letter {
+        font-size: 2.4rem;
+    }
+
+    /* ✅ ARTÍCULOS: Padding reducido */
+    article {
+        padding: 20px 16px;
+        border-radius: 12px;
+    }
+
+    /* ✅ CTA */
+    .cta-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .cta-button {
+        padding: 14px 24px;
+        font-size: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* ✅ FOOTER */
+    .footer-links {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+
+    /* ✅ NAV: Ajustes de padding */
+    .nav-container {
+        padding: 8px 16px;
+    }
+
+    .nav-brand {
+        font-size: 1.1rem;
+    }
+
+    .nav-brand img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* ✅ MÓVIL MEDIANO (hasta 700px) */
+@media (max-width: 700px) {
+    
+    .historia-content {
+        flex-direction: column;
+    }
+
+    .historia-img {
+        flex: none;
+        max-width: 100%;
+        aspect-ratio: 16/10;
+    }
+
+    .video-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .video-description p {
+        font-size: 0.95rem;
+    }
+
+    article h2 {
+        font-size: 1.6rem;
+    }
+
+    .section-label {
+        font-size: 0.65rem;
+        padding: 4px 12px;
+    }
+}
+
+/* ================================================================ */
+/* 🎯 UTILIDADES Y MEJORAS DE ACCESIBILIDAD                        */
+/* ================================================================ */
+
+/* ✅ ENFOQUE DE TECLADO (accesibilidad) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #facc15;
+    outline-offset: 2px;
+}
+
+/* ✅ SCROLLBAR PERSONALIZADA (mejora estética) */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #facc15;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #eab308;
+}
+
+/* ✅ SELECCIÓN DE TEXTO */
+::selection {
+    background: #facc15;
+    color: #020617;
+}
+
+/* ✅ ANIMACIONES DE CARGA */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+article {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+article:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+article:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+article:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+article:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+article:nth-child(6) {
+    animation-delay: 0.5s;
 }

@@ -2,192 +2,407 @@
 <html lang="es">
 
 <head>
-    <!-- Identidad de la página -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/index.css">
-    <link rel="icon" type="image/png" sizes="128x128" href="../Foto/Favicon/favicon-maw-final.png">  <!--Pequeño logo de navegador-->
-    <title>Kanterbury Days!</title>
+    <!-- ============================================ -->
+    <!-- 🔧 METADATOS: Configuración básica de la página -->
+    <!-- ============================================ -->
+    <meta charset="UTF-8">                              <!-- Caracteres especiales (ñ, tildes) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive en móviles -->
+    <meta name="description" content="Kanterbury Days - Fan site de Guardian Tales"> <!-- SEO -->
+    <meta name="author" content="Kanterbury Days Team"> <!-- Autor de la página -->
+    
+    <!-- ============================================ -->
+    <!-- 🎨 ESTILOS Y RECURSOS EXTERNOS -->
+    <!-- ============================================ -->
+    <link rel="stylesheet" href="../CSS/index.css">    <!-- Hoja de estilos principal -->
+    <link rel="icon" type="image/png" sizes="128x128" href="../Foto/Favicon/favicon-maw-final.png">
+    <title>Kanterbury Days - Fan Site de Guardian Tales</title>
 </head>
 
 <body>
 
-    <!-- Encabezado -->
+    <!-- ============================================ -->
+    <!-- 🏠 HEADER: Encabezado con el banner principal -->
+    <!-- ============================================ -->
     <header>
-        <img src="../Foto/index/GuardianTale.png" alt="Logo presentación" class="banner-header">
+        <!-- El banner ocupa todo el ancho y es responsive -->
+        <img 
+            src="../Foto/index/GuardianTale.png" 
+            alt="Logo principal de Kanterbury Days - Guardian Tales" 
+            class="banner-header"
+            loading="eager"  <!-- Carga inmediata para mejor experiencia -->
     </header>
 
-    <!-- Menú de navegación -->
+    <!-- ============================================ -->
+    <!-- 🧭 NAVEGACIÓN: Barra fija con menú responsive -->
+    <!-- ============================================ -->
     <nav>
         <div class="nav-container">
             
-            
-            <!-- Marca / Logo --> 
-            <a href="index.html" class="nav-brand">
-                <img src="../Foto/index/Nvegador/Princess.png" alt="Princesita" class="nav-icon"> Kanterbury Days</a>
+            <!-- 🔹 LOGO + MARCA: Enlace a la página principal -->
+            <a href="index.html" class="nav-brand" aria-label="Ir a la página principal">
+                <img 
+                    src="../Foto/index/Nvegador/Princess.png" 
+                    alt="Princesita icono" 
+                    class="nav-icon"
+                    loading="lazy"
+                > 
+                <span>Kanterbury Days</span>
+            </a>
 
-            <!-- Botón hamburguesa (solo visible en móvil) -->
-            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+            <!-- 🔹 BOTÓN HAMBURGUESA: Controla el menú en móvil -->
+            <button 
+                class="nav-toggle" 
+                id="navToggle" 
+                aria-label="Abrir o cerrar menú de navegación"
+                aria-expanded="false"
+            >
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <!-- Imagenes del navegador (Contenedor colapsable) -->
-            <div class="nav-links" id="navLinks">
-
-                <a href="index.html">
-                    <img src="../Foto/index/Nvegador/Home.png" alt="Casa" class="nav-icon"> Inicio</a>
-                <a href="heroes.html">
-                    <img src="../Foto/index/Nvegador/Sword.png" alt="Héroe" class="nav-icon"> Héroes</a>
-                <a href="trajes.html">
-                    <img src="../Foto/index/Nvegador/Clothes.png" alt="Trajes" class="nav-icon"> Trajes</a>
-                <a href="guias.html">
-                    <img src="../Foto/index/Nvegador/Guias.png" alt="Guías" class="nav-icon"> Guías</a>
-                <a href="colecciones.html">
-                    <img src="../Foto/index/Nvegador/Colección.png" alt="Colección" class="nav-icon"> Colección</a>
-                <a href="noticias.html">
-                    <img src="../Foto/index/Nvegador/News.png" alt="News" class="nav-icon"> Noticias</a>
-                <a href="apoyo.html">
-                    <img src="../Foto/index/Nvegador/Suport.png" alt="Apoyo" class="nav-icon"> Apoyo</a>
-
-                <div class="busqueda">
-                    <input type="text" placeholder="Buscar héroe...">
-                    <button>
-                        <img src="../Foto/index/Nvegador/Search.png" alt="Buscar" class="nav-icon"></button>
+            <!-- 🔹 MENÚ PRINCIPAL: Enlaces de navegación -->
+            <div class="nav-links" id="navLinks" role="navigation" aria-label="Menú principal">
+                
+                <!-- Grupo de enlaces principales -->
+                <div class="nav-menu-items">
+                    <a href="index.html" class="active" aria-current="page">
+                        <img src="../Foto/index/Nvegador/Home.png" alt="Inicio" class="nav-icon" loading="lazy"> 
+                        <span>Inicio</span>
+                    </a>
+                    <a href="heroes.html">
+                        <img src="../Foto/index/Nvegador/Sword.png" alt="Héroes" class="nav-icon" loading="lazy"> 
+                        <span>Héroes</span>
+                    </a>
+                    <a href="trajes.html">
+                        <img src="../Foto/index/Nvegador/Clothes.png" alt="Trajes" class="nav-icon" loading="lazy"> 
+                        <span>Trajes</span>
+                    </a>
+                    <a href="guias.html">
+                        <img src="../Foto/index/Nvegador/Guias.png" alt="Guías" class="nav-icon" loading="lazy"> 
+                        <span>Guías</span>
+                    </a>
+                    <a href="colecciones.html">
+                        <img src="../Foto/index/Nvegador/Colección.png" alt="Colección" class="nav-icon" loading="lazy"> 
+                        <span>Colección</span>
+                    </a>
+                    <a href="noticias.html">
+                        <img src="../Foto/index/Nvegador/News.png" alt="Noticias" class="nav-icon" loading="lazy"> 
+                        <span>Noticias</span>
+                    </a>
+                    <a href="apoyo.html">
+                        <img src="../Foto/index/Nvegador/Suport.png" alt="Apoyo" class="nav-icon" loading="lazy"> 
+                        <span>Apoyo</span>
+                    </a>
                 </div>
 
-                <a href="login.html" class="login">
-                    <img src="../Foto/index/Nvegador/User.png" alt="Persona" class="nav-icon"> Login</a>
+                <!-- 🔹 BUSCADOR: Barra de búsqueda integrada -->
+                <div class="nav-actions">
+                    <div class="busqueda" role="search">
+                        <input 
+                            type="text" 
+                            placeholder="Buscar héroe..." 
+                            aria-label="Buscar héroes en la página"
+                        >
+                        <button type="submit" aria-label="Realizar búsqueda">
+                            <img src="../Foto/index/Nvegador/Search.png" alt="Buscar" class="nav-icon" loading="lazy">
+                        </button>
+                    </div>
+
+                    <!-- 🔹 LOGIN: Botón de acceso destacado -->
+                    <a href="login.html" class="login" aria-label="Iniciar sesión">
+                        <img src="../Foto/index/Nvegador/User.png" alt="Usuario" class="nav-icon" loading="lazy"> 
+                        <span>Login</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- ============================================ -->
+    <!-- 📱 SCRIPT: Control del menú hamburguesa -->
+    <!-- ============================================ -->
     <script>
-        // Abre/cierra el menú en móvil al tocar el botón hamburguesa
-        document.getElementById('navToggle').addEventListener('click', function () {
-            document.getElementById('navLinks').classList.toggle('active');
+        // 🔄 Menú hamburguesa: abre/cierra al hacer clic
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', function() {
+            const isOpen = navLinks.classList.toggle('active');
+            this.setAttribute('aria-expanded', isOpen);
             this.classList.toggle('active');
+        });
+
+        // 🚀 Cierra el menú al hacer clic en un enlace (mejor UX en móvil)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
         });
     </script>
 
-    <!-- Contenido principal -->
+    <!-- ============================================ -->
+    <!-- 📚 MAIN: Contenido principal de la página -->
+    <!-- ============================================ -->
     <main>
-        <section>
+        <section class="content-wrapper">
 
-            <!-- Historia -->
-            <article>
-                <h2>Historia</h2>
-                <p>
-                    En Guardian Tales, el reino de Kanterbury está en peligro tras 
-                    la invasión de fuerzas oscuras. Como guardián, deberás embarcarte 
-                    en una aventura para salvar el mundo, descubrir la verdad detrás 
-                    del caos y proteger a la princesa.
-                </p>
+            <!-- ========================================== -->
+            <!-- 📖 HISTORIA: Sección con el lore del juego -->
+            <!-- ========================================== -->
+            <article class="historia-section" aria-label="Historia del juego">
+                
+                <div class="historia-content">
+                    <!-- Texto de la historia -->
+                    <div class="historia-text">
+                        <h2>La Historia de Kanterbury</h2>
+                        <p>
+                            En <strong>Guardian Tales</strong>, el reino de <strong>Kanterbury</strong> 
+                            está en peligro tras la invasión de fuerzas oscuras. Como guardián, 
+                            deberás embarcarte en una aventura épica para salvar el mundo, 
+                            descubrir la verdad detrás del caos y proteger a la princesa.
+                        </p>
+                        <p>
+                            Sumérgete en una narrativa llena de giros inesperados, personajes 
+                            memorables y decisiones que afectarán el destino del reino.
+                        </p>
+                    </div>
+                    
+                    <!-- Imagen ilustrativa -->
+                    <img 
+                        src="../Foto/index/historia.webp" 
+                        alt="Escena épica de la historia de Guardian Tales" 
+                        class="historia-img"
+                        loading="lazy"
+                    >
+                </div>
             </article>
 
-            <!-- ¿Qué es? -->
-            <article>
+            <!-- ========================================== -->
+            <!-- 🎬 VIDEO: Presentación del juego -->
+            <!-- ========================================== -->
+            <article class="video-section" aria-label="Video de presentación">
                 <h2>¿Qué es Guardian Tales?</h2>
 
-                <iframe 
-                    src="https://www.youtube.com/embed/1ATLebaVJvY"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen> <!--Apartado video-->
-                </iframe>
+                <div class="video-frame">
+                    <iframe 
+                        src="https://www.youtube.com/embed/1ATLebaVJvY" 
+                        title="Guardian Tales - Tráiler oficial del juego"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                    ></iframe>
+                </div>
 
-                <p>
-                    Guardian Tales es un videojuego RPG de acción y aventuras 
-                    que combina combates dinámicos, exploración de mazmorras 
-                    y desafiantes rompecabezas. Con un estilo retro inspirado 
-                    en los clásicos, el juego ofrece una historia profunda y 
-                    personajes llenos de personalidad.
-                </p>
+                <div class="video-description">
+                    <p>
+                        <strong>Guardian Tales</strong> es un RPG de acción y aventuras 
+                        que combina combates dinámicos, exploración de mazmorras 
+                        y desafiantes rompecabezas. Con un estilo retro inspirado 
+                        en los clásicos, el juego ofrece una historia profunda y 
+                        personajes llenos de personalidad.
+                    </p>
+                </div>
             </article>
 
-            <!-- Características -->
-            <article>
-                <h2>Características del juego</h2>
+            <!-- ========================================== -->
+            <!-- ⭐ CARACTERÍSTICAS: Grid de 4 tarjetas -->
+            <!-- ========================================== -->
+            <article aria-label="Características del juego">
+                <h2>Características del Juego</h2>
 
                 <div class="caracteristicas-grid">
-
+                    <!-- Tarjeta 1: Exploración -->
                     <div class="caracteristica-card">
-                        <img src="../Foto/index/Características/ExploraMawina.png" alt="Exploración">
+                        <div class="card-icon">
+                            <img 
+                                src="../Foto/index/Características/ExploraMawina.png" 
+                                alt="Exploración" 
+                                loading="lazy"
+                            >
+                        </div>
                         <h3>Exploración</h3>
                         <p>Recorre distintos mundos llenos de secretos, misiones ocultas y desafíos.</p>
                     </div>
 
+                    <!-- Tarjeta 2: Combate -->
                     <div class="caracteristica-card">
-                        <img src="../Foto/index/Características/CombateMawina.png" alt="Combate">
-                        <h3>Combate en tiempo real</h3>
+                        <div class="card-icon">
+                            <img 
+                                src="../Foto/index/Características/CombateMawina.png" 
+                                alt="Combate" 
+                                loading="lazy"
+                            >
+                        </div>
+                        <h3>Combate en Tiempo Real</h3>
                         <p>Enfréntate a enemigos con habilidades únicas y estrategias dinámicas.</p>
                     </div>
 
+                    <!-- Tarjeta 3: Puzzles -->
                     <div class="caracteristica-card">
-                        <img src="../Foto/index/Características/PuzzleDeysi.png" alt="Puzzles">
+                        <div class="card-icon">
+                            <img 
+                                src="../Foto/index/Características/PuzzleDeysi.png" 
+                                alt="Puzzles" 
+                                loading="lazy"
+                            >
+                        </div>
                         <h3>Puzzles</h3>
-                        <p>Resuelve acertijos para avanzar en la historia.</p>
+                        <p>Resuelve acertijos ingeniosos para avanzar en la historia.</p>
                     </div>
 
+                    <!-- Tarjeta 4: Colección -->
                     <div class="caracteristica-card">
-                        <img src="../Foto/index/Características/ColeccionaDeysi.png" alt="Colección">
-                        <h3>Colección de héroes</h3>
-                        <p>Desbloquea y mejora personajes con habilidades especiales.</p>
+                        <div class="card-icon">
+                            <img 
+                                src="../Foto/index/Características/ColeccionaDeysi.png" 
+                                alt="Colección" 
+                                loading="lazy"
+                            >
+                        </div>
+                        <h3>Colección de Héroes</h3>
+                        <p>Desbloquea y mejora más de 100 personajes con habilidades especiales.</p>
                     </div>
-
                 </div>
             </article>
 
-            <!-- Personajes principales-->
-            <article>
+            <!-- ========================================== -->
+            <!-- 👥 PERSONAJES DESTACADOS -->
+            <!-- ========================================== -->
+            <article aria-label="Personajes destacados">
                 <h2>Personajes Destacados</h2>
+                
+                <div class="personajes-grid">
+                    <!-- Personaje 1: Caballero -->
+                    <div class="personaje-card">
+                        <div class="personaje-imagen">
+                            <img 
+                                src="../Foto/index/Profile_Female_Knight_Front.webp" 
+                                alt="Caballero de Guardian Tales" 
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="personaje-info">
+                            <h3>⚔️ Caballero</h3>
+                            <p>El protagonista valiente y determinado que lidera la lucha contra el caos.</p>
+                        </div>
+                    </div>
 
-                <h3>Caballero</h3>
-                <p>El protagonista del juego, valiente y determinado.</p>
-                <figure>
-                    <img src="../Foto/index/Profile_Female_Knight_Front.webp" alt="Caballero de Guardian Tales">
-                </figure>
+                    <!-- Personaje 2: Princesa -->
+                    <div class="personaje-card">
+                        <div class="personaje-imagen">
+                            <img 
+                                src="../Foto/index/Little_Princess.webp" 
+                                alt="Princesa de Guardian Tales" 
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="personaje-info">
+                            <h3>👑 Princesa</h3>
+                            <p>Personaje clave en la historia con un gran peso emocional y misterio.</p>
+                        </div>
+                    </div>
 
-                <h3>Princesa</h3>
-                <p>Un personaje clave en la historia con un gran peso emocional.</p>
-                <figure>
-                    <img src="../Foto/index/Little_Princess.webp" alt="Princesa de Guardian Tales">
-                </figure>
-
-                <h3>Héroes variados</h3>
-                <p>Cada personaje tiene habilidades únicas que ayudan en combate.</p>
-                <figure>
-                    <img src="../Foto/index/Sprite_Grand_Admiral_Marina.webp" alt="Héroes de Guardian Tales">
-                </figure>
+                    <!-- Personaje 3: Héroes variados -->
+                    <div class="personaje-card">
+                        <div class="personaje-imagen">
+                            <img 
+                                src="../Foto/index/Sprite_Grand_Admiral_Marina.webp" 
+                                alt="Héroes de Guardian Tales" 
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="personaje-info">
+                            <h3>🛡️ Héroes Legendarios</h3>
+                            <p>Cada personaje tiene habilidades únicas que ayudan en combate.</p>
+                        </div>
+                    </div>
+                </div>
             </article>
 
-            <!-- Modos -->
-            <article>
+            <!-- ========================================== -->
+            <!-- 🎮 MODOS DE JUEGO -->
+            <!-- ========================================== -->
+            <article aria-label="Modos de juego">
                 <h2>Modos de Juego</h2>
-                <ul>
-                    <li>Historia principal</li>
-                    <li>PvP (jugador vs jugador)</li>
-                    <li>Mazmorras</li>
-                    <li>Eventos especiales</li>
+                
+                <ul class="modos-lista">
+                    <li>
+                        <span class="modo-icon">📖</span>
+                        <div>
+                            <strong>Historia Principal</strong>
+                            <p>Vive la épica aventura de Kanterbury capítulo por capítulo.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="modo-icon">⚔️</span>
+                        <div>
+                            <strong>PvP (Jugador vs Jugador)</strong>
+                            <p>Enfrenta a otros jugadores en combates estratégicos.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="modo-icon">🏰</span>
+                        <div>
+                            <strong>Mazmorras</strong>
+                            <p>Explora mazmorras llenas de tesoros y enemigos desafiantes.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="modo-icon">🎉</span>
+                        <div>
+                            <strong>Eventos Especiales</strong>
+                            <p>Participa en eventos temporales con recompensas únicas.</p>
+                        </div>
+                    </li>
                 </ul>
             </article>
 
-            <!-- CTA -->
-            <article>
-                <h2>Llamado a la acción</h2>
-                <p>¿Estás listo para convertirte en un héroe?</p>
-                <a href="#">
-                    <button>Comienza tu aventura</button>
-                </a>
+            <!-- ========================================== -->
+            <!-- 🚀 CTA: Llamado a la acción -->
+            <!-- ========================================== -->
+            <article class="cta-section" aria-label="Llamado a la acción">
+                <div class="cta-content">
+                    <h2>¿Listo para la Aventura?</h2>
+                    <p>Únete a miles de jugadores y conviértete en el héroe que Kanterbury necesita.</p>
+                    <a href="#" class="cta-button">
+                        Comienza tu Aventura
+                        <span class="cta-arrow">→</span>
+                    </a>
+                </div>
             </article>
 
         </section>
     </main>
 
-    <!-- Pie de página -->
+    <!-- ============================================ -->
+    <!-- 📌 FOOTER: Pie de página -->
+    <!-- ============================================ -->
     <footer>
-        <p>© 2026 All Rights Reserved by Kanterbury Days!</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img 
+                    src="../Foto/index/Nvegador/Princess.png" 
+                    alt="Princesita" 
+                    class="footer-icon"
+                    loading="lazy"
+                >
+                <span>Kanterbury Days</span>
+            </div>
+            
+            <p>© 2026 All Rights Reserved by Kanterbury Days!</p>
+            
+            <div class="footer-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Uso</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
     </footer>
 
 </body>
+
 </html>
