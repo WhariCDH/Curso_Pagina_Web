@@ -2,73 +2,777 @@
 <html lang="es">
 
 <head>
-    <!-- Identidad de la página -->
+    <!-- ============================================ -->
+    <!-- 🔧 METADATOS                                 -->
+    <!-- ============================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/heroes.css">
-    <title>Heroes</title>
+    <meta name="description" content="Todos los héroes de Guardian Tales - Kanterbury Days">
+
+    <!-- ============================================ -->
+    <!-- 🎨 ESTILOS                                   -->
+    <!-- ============================================ -->
+    <link rel="stylesheet" href="../CSS/index.css"> <!-- Estilos generales -->
+    <link rel="stylesheet" href="../CSS/heroes.css"> <!-- Estilos específicos de héroes -->
+    <link rel="icon" type="image/png" sizes="128x128" href="../Foto/Favicon/favicon-maw-final.png">
+
+    <title>Kanterbury Days - Héroes</title>
 </head>
 
 <body>
 
-    <!-- Encabezado -->
+    <!-- ============================================ -->
+    <!-- 🏠 HEADER: Banner principal                   -->
+    <!-- ============================================ -->
     <header>
-        <img src="../Foto/index/GuardianTale.png" alt="Logo presentación" class="banner-header">
+        <img src="../Foto/index/GuardianTale.png" alt="Logo Kanterbury Days" class="banner-header">
     </header>
 
-    <!-- Menú de navegación -->
+    <!-- ============================================ -->
+    <!-- 🧭 NAVEGACIÓN                                -->
+    <!-- ============================================ -->
     <nav>
         <div class="nav-container">
-            
-            
-            <!-- Marca / Logo --> 
             <a href="index.html" class="nav-brand">
-                <img src="../Foto/index/Nvegador/Princess.png" alt="Princesita" class="nav-icon"> Kanterbury Days</a>
+                <img src="../Foto/index/Nvegador/Princess.png" alt="Princesita" class="nav-icon">
+                <span>Kanterbury Days</span>
+            </a>
 
-            <!-- Botón hamburguesa (solo visible en móvil) -->
             <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <!-- Contenedor colapsable -->
             <div class="nav-links" id="navLinks">
-
-                <a href="index.html">
-                    <img src="../Foto/index/Nvegador/Home.png" alt="Casa" class="nav-icon"> Inicio</a>
-                <a href="heroes.html">
-                    <img src="../Foto/index/Nvegador/Sword.png" alt="Héroe" class="nav-icon"> Héroes</a>
-                <a href="trajes.html">
-                    <img src="../Foto/index/Nvegador/Clothes.png" alt="Trajes" class="nav-icon"> Trajes</a>
-                <a href="guias.html">
-                    <img src="../Foto/index/Nvegador/Guias.png" alt="Guías" class="nav-icon"> Guías</a>
-                <a href="colecciones.html">
-                    <img src="../Foto/index/Nvegador/Colección.png" alt="Colección" class="nav-icon"> Colección</a>
-                <a href="noticias.html">
-                    <img src="../Foto/index/Nvegador/News.png" alt="News" class="nav-icon"> Noticias</a>
-                <a href="apoyo.html">
-                    <img src="../Foto/index/Nvegador/Suport.png" alt="Apoyo" class="nav-icon"> Apoyo</a>
-
-                <div class="busqueda">
-                    <input type="text" placeholder="Buscar héroe...">
-                    <button>
-                        <img src="../Foto/index/Nvegador/Search.png" alt="Buscar" class="nav-icon"></button>
+                <div class="nav-menu-items">
+                    <a href="index.html">
+                        <img src="../Foto/index/Nvegador/Home.png" alt="Inicio" class="nav-icon"> Inicio
+                    </a>
+                    <a href="heroes.html" class="active">
+                        <img src="../Foto/index/Nvegador/Sword.png" alt="Héroes" class="nav-icon"> Héroes
+                    </a>
+                    <a href="trajes.html">
+                        <img src="../Foto/index/Nvegador/Clothes.png" alt="Trajes" class="nav-icon"> Trajes
+                    </a>
+                    <a href="guias.html">
+                        <img src="../Foto/index/Nvegador/Guias.png" alt="Guías" class="nav-icon"> Guías
+                    </a>
+                    <a href="colecciones.html">
+                        <img src="../Foto/index/Nvegador/Colección.png" alt="Colección" class="nav-icon"> Colección
+                    </a>
+                    <a href="noticias.html">
+                        <img src="../Foto/index/Nvegador/News.png" alt="Noticias" class="nav-icon"> Noticias
+                    </a>
+                    <a href="apoyo.html">
+                        <img src="../Foto/index/Nvegador/Suport.png" alt="Apoyo" class="nav-icon"> Apoyo
+                    </a>
                 </div>
 
-                <a href="login.html" class="login">
-                    <img src="../Foto/index/Nvegador/User.png" alt="Persona" class="nav-icon"> Login</a>
+                <div class="nav-actions">
+                    <div class="busqueda">
+                        <input type="text" placeholder="Buscar héroe..." id="searchHero">
+                        <button onclick="filterHeroes()">
+                            <img src="../Foto/index/Nvegador/Search.png" alt="Buscar" class="nav-icon">
+                        </button>
+                    </div>
+                    <a href="login.html" class="login">
+                        <img src="../Foto/index/Nvegador/User.png" alt="Usuario" class="nav-icon"> Login
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- ============================================ -->
+    <!-- 📱 SCRIPT: Menú hamburguesa + búsqueda       -->
+    <!-- ============================================ -->
     <script>
-        // Abre/cierra el menú en móvil al tocar el botón hamburguesa
-        document.getElementById('navToggle').addEventListener('click', function () {
-            document.getElementById('navLinks').classList.toggle('active');
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', function () {
+            navLinks.classList.toggle('active');
             this.classList.toggle('active');
         });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        function filterHeroes() {
+            const input = document.getElementById('searchHero');
+            const filter = input.value.toLowerCase();
+            const cards = document.querySelectorAll('.hero-card');
+
+            cards.forEach(card => {
+                const name = card.querySelector('.hero-name').textContent.toLowerCase();
+                if (name.includes(filter)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        document.getElementById('searchHero').addEventListener('keyup', filterHeroes);
     </script>
 
-</body>
-</html>
+    <!-- ============================================ -->
+    <!-- 📚 MAIN: Galería de héroes                   -->
+    <!-- ============================================ -->
+    <main>
+        <section class="heroes-section">
+
+            <div class="heroes-header">
+                <h1>⚔️ Héroes de Guardian Tales</h1>
+                <p>Descubre a todos los héroes disponibles en el juego</p>
+                <div class="heroes-count">
+                    <span id="totalHeroes">0</span> héroes disponibles
+                </div>
+            </div>
+
+            <div class="heroes-grid" id="heroesGrid">
+
+                <!-- ========================================== -->
+                <!-- 🔥 SEIRA - OSCURIDAD - SOPORTE             -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=seira" class="hero-card element-dark">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Heroes_Dark/Seira.webp" alt="Seira" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge element-dark">
+                            <img src="../Foto/heroes/Elemento/Element_Dark.webp" alt="Oscuridad">
+                        </span>
+                        <!-- ✅ AHORA LA IMAGEN Y EL TEXTO ESTÁN JUNTOS -->
+                        <span class="hero-role-badge role-support">
+                            <img src="../Foto/heroes/Categoria/Role_Support.webp" alt="Soporte">
+                            <span class="role-text">Soporte</span>
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Seira</h3>
+                        <span class="hero-element-name">Oscuridad</span>
+                        <span class="hero-role-name">Soporte</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 CLARA - LUZ - SOPORTE                   -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=clara" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Clara.png" alt="Clara" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Light.webp" alt="Luz">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Support.webp" alt="Soporte">
+                            Soporte
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Clara</h3>
+                        <span class="hero-element-name">✨ Luz</span>
+                        <span class="hero-role-name">🛡️ Soporte</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 KAHLOR - FUEGO - GUERRERO               -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=kahlor" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Kahlor.png" alt="Kahlor" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Fire.webp" alt="Fuego">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Warrior.webp" alt="Guerrero">
+                            Guerrero
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Kahlor</h3>
+                        <span class="hero-element-name">🔥 Fuego</span>
+                        <span class="hero-role-name">⚔️ Guerrero</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 LUCY - AGUA - MAGO                      -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=lucy" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Lucy.png" alt="Lucy" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Water.webp" alt="Agua">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Mago">
+                            Mago
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Lucy</h3>
+                        <span class="hero-element-name">💧 Agua</span>
+                        <span class="hero-role-name">🔮 Mago</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 RANDI - TIERRA - TANQUE                 -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=randi" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Randi.png" alt="Randi" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Earth.webp" alt="Tierra">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Tanker.webp" alt="Tanque">
+                            Tanque
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Randi</h3>
+                        <span class="hero-element-name">🌿 Tierra</span>
+                        <span class="hero-role-name">🛡️ Tanque</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 AA72 - OSCURIDAD - ASESINO              -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=aa72" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/AA72.png" alt="AA72" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Dark.webp" alt="Oscuridad">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Asesino">
+                            Asesino
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">AA72</h3>
+                        <span class="hero-element-name">💀 Oscuridad</span>
+                        <span class="hero-role-name">🗡️ Asesino</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 BIANCA - AGUA - MAGO                    -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=bianca" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Bianca.png" alt="Bianca" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Water.webp" alt="Agua">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Mago">
+                            Mago
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Bianca</h3>
+                        <span class="hero-element-name">💧 Agua</span>
+                        <span class="hero-role-name">🔮 Mago</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 DAISY - TIERRA - SOPORTE                -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=daisy" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Daisy.png" alt="Daisy" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Earth.webp" alt="Tierra">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Support.webp" alt="Soporte">
+                            Soporte
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Daisy</h3>
+                        <span class="hero-element-name">🌿 Tierra</span>
+                        <span class="hero-role-name">🛡️ Soporte</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 ORCA - AGUA - GUERRERO                  -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=orca" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Orca.png" alt="Orca" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Water.webp" alt="Agua">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Warrior.webp" alt="Guerrero">
+                            Guerrero
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Orca</h3>
+                        <span class="hero-element-name">💧 Agua</span>
+                        <span class="hero-role-name">⚔️ Guerrero</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 WAKAMO - FUEGO - ASESINO                -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=wakamo" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Wakamo.png" alt="Wakamo" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Fire.webp" alt="Fuego">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Asesino">
+                            Asesino
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Wakamo</h3>
+                        <span class="hero-element-name">🔥 Fuego</span>
+                        <span class="hero-role-name">🗡️ Asesino</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 CHRISELLE - OSCURIDAD - MAGO            -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=chriselle" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Chriselle.png" alt="Chriselle" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Dark.webp" alt="Oscuridad">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Mago">
+                            Mago
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Chriselle</h3>
+                        <span class="hero-element-name">💀 Oscuridad</span>
+                        <span class="hero-role-name">🔮 Mago</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 DABIN - TIERRA - SOPORTE                -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=dabin" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Dabin.png" alt="Dabin" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Earth.webp" alt="Tierra">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Support.webp" alt="Soporte">
+                            Soporte
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Dabin</h3>
+                        <span class="hero-element-name">🌿 Tierra</span>
+                        <span class="hero-role-name">🛡️ Soporte</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 KAMAEL - TIERRA - TANQUE                -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=kamael" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Kamael.png" alt="Kamael" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Earth.webp" alt="Tierra">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Tanker.webp" alt="Tanque">
+                            Tanque
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Kamael</h3>
+                        <span class="hero-element-name">🌿 Tierra</span>
+                        <span class="hero-role-name">🛡️ Tanque</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 NOEL - AGUA - SOPORTE                   -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=noel" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Noel.png" alt="Noel" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Water.webp" alt="Agua">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Support.webp" alt="Soporte">
+                            Soporte
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Noel</h3>
+                        <span class="hero-element-name">💧 Agua</span>
+                        <span class="hero-role-name">🛡️ Soporte</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 XIAOMAN - FUEGO - GUERRERO              -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=xiaoman" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Xiaoman.png" alt="Xiaoman" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Fire.webp" alt="Fuego">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Warrior.webp" alt="Guerrero">
+                            Guerrero
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Xiaoman</h3>
+                        <span class="hero-element-name">🔥 Fuego</span>
+                        <span class="hero-role-name">⚔️ Guerrero</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 EUGENE - RAYO - GUERRERO                -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=eugene" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Eugene.png" alt="Eugene" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Light.webp" alt="Rayo">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Warrior.webp" alt="Guerrero">
+                            Guerrero
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Eugene</h3>
+                        <span class="hero-element-name">⚡ Rayo</span>
+                        <span class="hero-role-name">⚔️ Guerrero</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 GABRIEL - LUZ - SOPORTE                 -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=gabriel" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Gabriel.png" alt="Gabriel" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Light.webp" alt="Luz">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Support.webp" alt="Soporte">
+                            Soporte
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Gabriel</h3>
+                        <span class="hero-element-name">✨ Luz</span>
+                        <span class="hero-role-name">🛡️ Soporte</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 HARUKA - AGUA - ASESINO                 -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=haruka" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Haruka.png" alt="Haruka" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Water.webp" alt="Agua">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Asesino">
+                            Asesino
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Haruka</h3>
+                        <span class="hero-element-name">💧 Agua</span>
+                        <span class="hero-role-name">🗡️ Asesino</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 ILLUNI - TIERRA - MAGO                  -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=illuni" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Illuni.png" alt="Illuni" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Earth.webp" alt="Tierra">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Mago">
+                            Mago
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Illuni</h3>
+                        <span class="hero-element-name">🌿 Tierra</span>
+                        <span class="hero-role-name">🔮 Mago</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 LACRIMA - OSCURIDAD - MAGO              -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=lacrima" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Lacrima.png" alt="Lacrima" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Dark.webp" alt="Oscuridad">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Mago">
+                            Mago
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Lacrima</h3>
+                        <span class="hero-element-name">💀 Oscuridad</span>
+                        <span class="hero-role-name">🔮 Mago</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 EUNHA - LUZ - MAGO                      -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=eunha" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Eunha.png" alt="Eunha" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Light.webp" alt="Luz">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Mago">
+                            Mago
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Eunha</h3>
+                        <span class="hero-element-name">✨ Luz</span>
+                        <span class="hero-role-name">🔮 Mago</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 EVA - FUEGO - GUERRERO                  -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=eva" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Eva.png" alt="Eva" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Fire.webp" alt="Fuego">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Warrior.webp" alt="Guerrero">
+                            Guerrero
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Eva</h3>
+                        <span class="hero-element-name">🔥 Fuego</span>
+                        <span class="hero-role-name">⚔️ Guerrero</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 RIE - RAYO - ASESINO                    -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=rie" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Rie.png" alt="Rie" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Light.webp" alt="Rayo">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Asesino">
+                            Asesino
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Rie</h3>
+                        <span class="hero-element-name">⚡ Rayo</span>
+                        <span class="hero-role-name">🗡️ Asesino</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 THE KNIGHT - BÁSICO - GUERRERO          -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=the-knight" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/TheKnight.png" alt="The Knight" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Basic.webp" alt="Básico">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Warrior.webp" alt="Guerrero">
+                            Guerrero
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">The Knight</h3>
+                        <span class="hero-element-name">⚔️ Básico</span>
+                        <span class="hero-role-name">⚔️ Guerrero</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 ARABELLE - OSCURIDAD - ASESINO          -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=arabelle" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Arabelle.png" alt="Arabelle" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Dark.webp" alt="Oscuridad">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Asesino">
+                            Asesino
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Arabelle</h3>
+                        <span class="hero-element-name">💀 Oscuridad</span>
+                        <span class="hero-role-name">🗡️ Asesino</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 BETH - OSCURIDAD - GUERRERO             -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=beth" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Beth.png" alt="Beth" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Dark.webp" alt="Oscuridad">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Warrior.webp" alt="Guerrero">
+                            Guerrero
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Beth</h3>
+                        <span class="hero-element-name">💀 Oscuridad</span>
+                        <span class="hero-role-name">⚔️ Guerrero</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 CALLIE - FUEGO - MAGO                   -->
+                <!-- ========================================== -->
+                <a href="hero-detail.html?hero=callie" class="hero-card">
+                    <div class="hero-image">
+                        <img src="../Foto/heroes/Callie.png" alt="Callie" loading="lazy">
+                        <span class="hero-rarity-badge">⭐⭐</span>
+                        <span class="hero-element-badge">
+                            <img src="../Foto/Elemento/Element_Fire.webp" alt="Fuego">
+                        </span>
+                        <span class="hero-role-badge">
+                            <img src="../Foto/Categoria/Role_Ranged.webp" alt="Mago">
+                            Mago
+                        </span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">Callie</h3>
+                        <span class="hero-element-name">🔥 Fuego</span>
+                        <span class="hero-role-name">🔮 Mago</span>
+                    </div>
+                </a>
+
+                <!-- ========================================== -->
+                <!-- 🔥 CONTINÚA AQUÍ CON MÁS HÉROES            -->
+                <!-- ========================================== -->
+                <!-- 
+                    GREMORY - OSCURIDAD - MAGO
+                    NIFTY - RAYO - SOPORTE
+                    AMY - TIERRA - GUERRERO
+                    LYNN - FUEGO - ASESINO
+                    MIYA - LUZ - SOPORTE
+                    PLITVICE - FUEGO - GUERRERO
+                    PYMON - TIERRA - TANQUE
+                    REY - AGUA - MAGO
+                    SAYA - OSCURIDAD - ASESINO
+                    SCINTILLA - FUEGO - MAGO
+                -->
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================ -->
+    <!-- 📌 FOOTER: Pie de página                     -->
+    <!-- ============================================ -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="../Foto/index/Nvegador/Princess.png" alt="Princesita" class="footer-icon">
+                <span>Kanterbury Days</span>
+            </div>
+            <p>© 2026 All Rights Reserved by Kanterbury Days!</p>
+            <div class="footer-links">
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Términos de Uso</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- 📊 SCRIPT: Contador de héroes                -->
+    <!-- ============================================ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const totalHeroes = document.querySelectorAll('.hero-card').length;

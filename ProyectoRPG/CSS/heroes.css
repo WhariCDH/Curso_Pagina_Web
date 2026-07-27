@@ -1,395 +1,629 @@
 /* ================================================================ */
-/* 🎨 RESET Y ESTILOS GLOBALES                                     */
+/* ⚔️ HÉROES - PÁGINA DE GALERÍA CON ELEMENTO Y ROL              */
 /* ================================================================ */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;  /* 📦 Incluye padding y border en el ancho total */
-}
-
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;  /* 📝 Fuente moderna */
-    background: linear-gradient(135deg, #0a0f1e 0%, #1a2332 50%, #0f172a 100%);
-    color: #e2e8f0;
-    min-height: 100vh;
-    line-height: 1.6;  /* 📏 Mejor legibilidad */
-}
-
-/* ================================================================ */
-/* 🏠 HEADER - BANNER PRINCIPAL                                    */
-/* ================================================================ */
-
-header {
-    background: #020617;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    border-bottom: 4px solid #facc15;  /* 🟡 Línea dorada más gruesa */
-    box-shadow: 0 4px 20px rgba(250, 204, 21, 0.15);
-}
-
-.banner-header {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 400px;  /* 📏 Límite para pantallas grandes */
-    object-fit: cover;  /* 📐 La imagen cubre sin deformarse */
-    transition: transform 0.5s ease;  /* 🎬 Efecto suave al cargar */
-}
-
-/* ================================================================ */
-/* 🧭 NAVEGACIÓN - BARRA STICKY                                    */
-/* ================================================================ */
-
-nav {
-    position: sticky;
-    top: 0;
-    z-index: 1000;  /* 📌 Muy por encima del contenido */
-    background: rgba(23, 32, 51, 0.95);  /* 🟫 Fondo semi-transparente */
-    backdrop-filter: blur(10px);  /* ✨ Efecto vidrio */
-    border-top: 2px solid #facc15;
-    border-bottom: 2px solid #facc15;
-    box-shadow: 0 4px 30px rgba(250, 204, 21, 0.2);
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 24px;
+/* ✅ SECCIÓN PRINCIPAL */
+.heroes-section {
     max-width: 1400px;
     margin: 0 auto;
-    gap: 16px;
+    padding: 20px 0;
 }
 
-/* ✅ MARCA / LOGO */
-.nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #facc15;
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: transform 0.3s ease;
+/* ✅ ENCABEZADO */
+.heroes-header {
+    text-align: center;
+    margin-bottom: 36px;
+    padding: 20px;
+    background: rgba(2, 6, 23, 0.6);
+    border-radius: 16px;
+    border: 1px solid rgba(250, 204, 21, 0.1);
 }
 
-.nav-brand:hover {
-    transform: scale(1.05);  /* 🎬 Se agranda ligeramente */
+.heroes-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #facc15, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
 }
 
-.nav-brand img {
-    width: 28px;
-    height: 28px;
+.heroes-header p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
 }
 
-/* ✅ MENÚ PRINCIPAL */
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    flex-wrap: wrap;
-}
-
-.nav-menu-items {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    flex-wrap: wrap;
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-left: 8px;
-}
-
-/* ✅ ÍCONOS DEL MENÚ */
-.nav-icon {
-    width: 18px;
-    height: 18px;
-    vertical-align: middle;
-    margin-right: 4px;
-    border-radius: 0;
-    filter: brightness(0.9);
-    transition: filter 0.3s ease;
-}
-
-.nav-links a:hover .nav-icon {
-    filter: brightness(1.2);  /* 🎬 Se ilumina al pasar el mouse */
-}
-
-/* ✅ ENLACES DEL MENÚ */
-.nav-links a {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 8px 14px;
-    color: rgba(255, 255, 255, 0.85);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    position: relative;
-    white-space: nowrap;
-}
-
-/* ✅ SUBRAYADO ANIMADO */
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 4px;
-    left: 14px;
-    right: 14px;
-    height: 2px;
-    background: #facc15;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-    transform: scaleX(1);
-}
-
-.nav-links a:hover {
-    color: #facc15;
-    background: rgba(250, 204, 21, 0.08);
-}
-
-.nav-links a.active {
-    color: #facc15;
+.heroes-count {
+    display: inline-block;
     background: rgba(250, 204, 21, 0.12);
+    color: #facc15;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(250, 204, 21, 0.2);
 }
 
-/* ✅ BUSCADOR */
-.busqueda {
+.heroes-count span {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* ✅ GRID DE HÉROES */
+.heroes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 8px;
+}
+
+/* ================================================================ */
+/* 🎴 TARJETA DE CADA HÉROE                                        */
+/* ================================================================ */
+
+.hero-card {
+    display: block;
+    background: rgba(15, 23, 42, 0.85);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(250, 204, 21, 0.08);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.hero-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ✅ BORDE SEGÚN ELEMENTO (se activa al hacer hover) */
+.hero-card.element-fire:hover {
+    border-color: #ef4444;
+    box-shadow: 0 12px 40px rgba(239, 68, 68, 0.25);
+}
+
+.hero-card.element-water:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.25);
+}
+
+.hero-card.element-earth:hover {
+    border-color: #8b5cf6;
+    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.25);
+}
+
+.hero-card.element-light:hover {
+    border-color: #facc15;
+    box-shadow: 0 12px 40px rgba(250, 204, 21, 0.25);
+}
+
+.hero-card.element-dark:hover {
+    border-color: #8b5cf6;
+    box-shadow: 0 12px 40px rgba(139, 92, 246, 0.25);
+}
+
+.hero-card.element-basic:hover {
+    border-color: #94a3b8;
+    box-shadow: 0 12px 40px rgba(148, 163, 184, 0.25);
+}
+
+/* ================================================================ */
+/* 🖼️ IMAGEN DEL HÉROE                                             */
+/* ================================================================ */
+
+.hero-image {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: rgba(2, 6, 23, 0.5);
     display: flex;
     align-items: center;
-    background: rgba(15, 23, 42, 0.8);
-    border-radius: 8px;
-    border: 2px solid rgba(250, 204, 21, 0.3);
-    transition: all 0.3s ease;
+    justify-content: center;
+    padding: 16px;
+    position: relative;
+    overflow: hidden;
 }
 
-.busqueda:focus-within {
-    border-color: #facc15;
-    box-shadow: 0 0 20px rgba(250, 204, 21, 0.2);
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+    pointer-events: none;
 }
 
-.busqueda input {
-    padding: 8px 14px;
-    border: none;
-    border-radius: 8px 0 0 8px;
-    outline: none;
-    background: transparent;
-    color: white;
-    font-size: 0.9rem;
-    width: 160px;
-    transition: width 0.3s ease;
-}
-
-.busqueda input:focus {
-    width: 200px;  /* 📏 Se estira al enfocar */
-}
-
-.busqueda input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.busqueda button {
-    background: #facc15;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 0 8px 8px 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.busqueda button:hover {
-    background: #eab308;
+.hero-card:hover .hero-image img {
     transform: scale(1.05);
 }
 
-/* ✅ BOTÓN LOGIN */
-.login {
+/* ================================================================ */
+/* 🎨 BADGE DE ELEMENTO                                            */
+/* ================================================================ */
+
+.hero-element-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2, 6, 23, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+    padding: 4px;
+    pointer-events: none;
+}
+
+.hero-card:hover .hero-element-badge {
+    transform: scale(1.1);
+}
+
+/* ✅ BORDE SEGÚN ELEMENTO */
+.element-fire {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+.element-water {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.element-earth {
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.element-light {
+    border-color: #facc15 !important;
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+}
+
+.element-dark {
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.element-basic {
+    border-color: #94a3b8 !important;
+    box-shadow: 0 0 20px rgba(148, 163, 184, 0.3);
+}
+
+.hero-element-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* ================================================================ */
+/* 🏷️ BADGE DE ROL - CORREGIDO (TEXTO COMPLETO)                   */
+/* ================================================================ */
+
+.hero-role-badge {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 14px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    backdrop-filter: blur(4px);
+    z-index: 2;
+    transition: background 0.3s ease, border-color 0.3s ease, filter 0.3s ease;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: #facc15;
-    color: #020617 !important;
-    padding: 8px 20px;
-    border-radius: 8px;
+    line-height: 1;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    min-height: 24px;
+    background: rgba(2, 6, 23, 0.85);
+    pointer-events: none;
+    white-space: nowrap;
+    padding: 4px 12px 4px 28px;
+}
+
+/* ✅ ICONO DEL ROL - FIJO, SIN MOVIMIENTO */
+.hero-role-badge img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    display: inline-block;
+    flex-shrink: 0;
+    position: static;
+    transform: none !important;
+    transition: none !important;
+    filter: brightness(0) invert(1);
+}
+
+/* ✅ TEXTO DEL ROL - COMPLETO Y VISIBLE */
+.hero-role-badge .role-text {
+    display: inline-block;
+    font-size: 0.6rem;
     font-weight: 700;
-    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: visible;
 }
 
-.login:hover {
-    background: #eab308;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(250, 204, 21, 0.4);
+/* ✅ COLORES POR TIPO DE ROL */
+.role-support {
+    background: rgba(14, 165, 233, 0.85);
+    border-color: rgba(14, 165, 233, 0.4);
+    padding: 4px 14px 4px 28px;
 }
 
-/* ✅ BOTÓN HAMBURGUESA */
-.nav-toggle {
+.role-warrior {
+    background: rgba(250, 204, 21, 0.85);
+    border-color: rgba(250, 204, 21, 0.4);
+    color: #020617;
+    padding: 4px 12px 4px 28px;
+}
+
+.role-warrior .hero-role-badge img {
+    filter: brightness(0);
+}
+
+.role-tank {
+    background: rgba(59, 130, 246, 0.85);
+    border-color: rgba(59, 130, 246, 0.4);
+    padding: 4px 12px 4px 28px;
+}
+
+.role-ranged {
+    background: rgba(34, 197, 94, 0.85);
+    border-color: rgba(34, 197, 94, 0.4);
+    padding: 4px 12px 4px 28px;
+}
+
+.role-assassin {
+    background: rgba(139, 92, 246, 0.85);
+    border-color: rgba(139, 92, 246, 0.4);
+    padding: 4px 12px 4px 28px;
+}
+
+/* ✅ HOVER - SIN MOVIMIENTO */
+.hero-card:hover .hero-role-badge {
+    filter: brightness(1.1);
+}
+
+.hero-card:hover .hero-role-badge,
+.hero-card:hover .hero-role-badge img {
+    transform: none !important;
+}
+
+/* ================================================================ */
+/* ⭐ BADGE DE RAREZA                                              */
+/* ================================================================ */
+
+.hero-rarity-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.65rem;
+    color: #facc15;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    letter-spacing: 1px;
+    z-index: 2;
+    background: rgba(2, 6, 23, 0.7);
+    padding: 2px 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(250, 204, 21, 0.2);
+    pointer-events: none;
+}
+
+/* ================================================================ */
+/* 📝 INFORMACIÓN DEL HÉROE                                        */
+/* ================================================================ */
+
+.hero-info {
+    padding: 14px 16px 16px;
+    text-align: center;
+}
+
+.hero-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 0 0 4px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.3s ease;
+}
+
+.hero-card:hover .hero-name {
+    color: #facc15;
+}
+
+.hero-element-name {
+    font-size: 0.7rem;
+    color: #94a3b8;
+    display: block;
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+.hero-role-name {
+    font-size: 0.65rem;
+    color: #64748b;
+    display: block;
+    margin-top: 2px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ================================================================ */
+/* 🔍 FILTRO DE BÚSQUEDA                                           */
+/* ================================================================ */
+
+.hero-card.hidden {
     display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    z-index: 10;
 }
 
-.nav-toggle span {
-    width: 28px;
-    height: 3px;
-    background: #facc15;
-    border-radius: 2px;
-    transition: 0.3s ease;
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+    color: #94a3b8;
+    grid-column: 1 / -1;
 }
 
-.nav-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
+.no-results.show {
+    display: block;
 }
 
-.nav-toggle.active span:nth-child(2) {
+.no-results h3 {
+    color: #facc15;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+/* ================================================================ */
+/* 📱 RESPONSIVE - TODOS LOS MEDIA QUERIES JUNTOS                  */
+/* ================================================================ */
+
+@media (max-width: 1100px) {
+    .heroes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 16px;
+    }
+
+    .heroes-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .heroes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+    }
+
+    .heroes-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .heroes-header p {
+        font-size: 0.95rem;
+    }
+
+    .hero-info {
+        padding: 10px 12px 12px;
+    }
+
+    .hero-name {
+        font-size: 0.85rem;
+    }
+
+    .hero-image {
+        padding: 10px;
+    }
+
+    .hero-element-badge {
+        width: 30px;
+        height: 30px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .hero-role-badge {
+        font-size: 0.5rem;
+        padding: 3px 10px 3px 24px;
+        min-height: 20px;
+        bottom: 8px;
+        right: 8px;
+    }
+
+    .hero-role-badge img {
+        width: 14px;
+        height: 14px;
+    }
+
+    .hero-role-badge .role-text {
+        font-size: 0.5rem;
+    }
+
+    .role-support {
+        padding: 3px 12px 3px 24px;
+    }
+
+    .role-warrior {
+        padding: 3px 10px 3px 24px;
+    }
+
+    .role-tank {
+        padding: 3px 10px 3px 24px;
+    }
+
+    .role-ranged {
+        padding: 3px 10px 3px 24px;
+    }
+
+    .role-assassin {
+        padding: 3px 10px 3px 24px;
+    }
+
+    .hero-rarity-badge {
+        font-size: 0.55rem;
+        top: 8px;
+        left: 8px;
+        padding: 2px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroes-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .heroes-header {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+
+    .heroes-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-info {
+        padding: 8px 8px 10px;
+    }
+
+    .hero-name {
+        font-size: 0.75rem;
+    }
+
+    .hero-element-name {
+        font-size: 0.6rem;
+    }
+
+    .hero-role-name {
+        font-size: 0.55rem;
+    }
+
+    .hero-image {
+        padding: 8px;
+    }
+
+    .hero-element-badge {
+        width: 26px;
+        height: 26px;
+        top: 6px;
+        right: 6px;
+        padding: 3px;
+    }
+
+    .hero-role-badge {
+        font-size: 0.4rem;
+        padding: 2px 8px 2px 20px;
+        min-height: 16px;
+        border-radius: 10px;
+        bottom: 6px;
+        right: 6px;
+        gap: 4px;
+    }
+
+    .hero-role-badge img {
+        width: 12px;
+        height: 12px;
+    }
+
+    .hero-role-badge .role-text {
+        font-size: 0.4rem;
+    }
+
+    .role-support {
+        padding: 2px 10px 2px 20px;
+    }
+
+    .role-warrior {
+        padding: 2px 8px 2px 20px;
+    }
+
+    .role-tank {
+        padding: 2px 8px 2px 20px;
+    }
+
+    .role-ranged {
+        padding: 2px 8px 2px 20px;
+    }
+
+    .role-assassin {
+        padding: 2px 8px 2px 20px;
+    }
+
+    .hero-rarity-badge {
+        font-size: 0.5rem;
+        top: 6px;
+        left: 6px;
+        padding: 2px 6px;
+    }
+}
+
+/* ================================================================ */
+/* 🎯 ANIMACIONES DE ENTRADA                                       */
+/* ================================================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-card {
+    animation: fadeInUp 0.5s ease forwards;
     opacity: 0;
 }
 
-.nav-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* ================================================================ */
-/* 📱 RESPONSIVE - NAVEGACIÓN EN MÓVIL                             */
-/* ================================================================ */
-
-/* ✅ TABLET Y PANTALLAS MEDIANAS (hasta 1100px) */
-@media (max-width: 1100px) {
-    
-    /* BOTÓN HAMBURGUESA: Aparece */
-    .nav-toggle {
-        display: flex;
-    }
-
-    /* MENÚ: Se oculta y se muestra en columna */
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-        padding: 12px 0;
-        gap: 4px;
-        border-top: 1px solid rgba(250, 204, 21, 0.1);
-        margin-top: 12px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-menu-items {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-actions {
-        flex-direction: column;
-        width: 100%;
-        margin-left: 0;
-        gap: 8px;
-    }
-
-    .nav-links a {
-        width: 100%;
-        padding: 10px 16px;
-        justify-content: flex-start;
-    }
-
-    .nav-links a::after {
-        display: none;  /* ❌ Sin subrayado en móvil */
-    }
-
-    .busqueda {
-        width: 100%;
-    }
-
-    .busqueda input {
-        width: 100%;
-        flex: 1;
-    }
-
-    .busqueda input:focus {
-        width: 100%;
-    }
-
-    .login {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-/* ✅ MÓVIL PEQUEÑO (hasta 480px) */
-@media (max-width: 480px) {
-    
-    .nav-container {
-        padding: 8px 16px;
-    }
-
-    .nav-brand {
-        font-size: 1.1rem;
-    }
-
-    .nav-brand img {
-        width: 24px;
-        height: 24px;
-    }
-
-    .nav-toggle span {
-        width: 24px;
-        height: 2.5px;
-    }
-}
-
-/* ================================================================ */
-/* 🎯 UTILIDADES Y MEJORAS DE ACCESIBILIDAD                        */
-/* ================================================================ */
-
-/* ✅ ENFOQUE DE TECLADO (accesibilidad) */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible {
-    outline: 3px solid #facc15;
-    outline-offset: 2px;
-}
-
-/* ✅ SCROLLBAR PERSONALIZADA (mejora estética) */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(15, 23, 42, 0.8);
-}
-
-::-webkit-scrollbar-thumb {
-    background: #facc15;
-    border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #eab308;
-}
-
-/* ✅ SELECCIÓN DE TEXTO */
-::selection {
-    background: #facc15;
-    color: #020617;
-}
+.hero-card:nth-child(1) { animation-delay: 0.05s; }
+.hero-card:nth-child(2) { animation-delay: 0.10s; }
+.hero-card:nth-child(3) { animation-delay: 0.15s; }
+.hero-card:nth-child(4) { animation-delay: 0.20s; }
+.hero-card:nth-child(5) { animation-delay: 0.25s; }
+.hero-card:nth-child(6) { animation-delay: 0.30s; }
+.hero-card:nth-child(7) { animation-delay: 0.35s; }
+.hero-card:nth-child(8) { animation-delay: 0.40s; }
+.hero-card:nth-child(9) { animation-delay: 0.45s; }
+.hero-card:nth-child(10) { animation-delay: 0.50s; }
+.hero-card:nth-child(11) { animation-delay: 0.55s; }
+.hero-card:nth-child(12) { animation-delay: 0.60s; }
+.hero-card:nth-child(13) { animation-delay: 0.65s; }
+.hero-card:nth-child(14) { animation-delay: 0.70s; }
+.hero-card:nth-child(15) { animation-delay: 0.75s; }
+.hero-card:nth-child(16) { animation-delay: 0.80s; }
+.hero-card:nth-child(17) { animation-delay: 0.85s; }
+.hero-card:nth-child(18) { animation-delay: 0.90s; }
+.hero-card:nth-child(19) { animation-delay: 0.95s; }
+.hero-card:nth-child(20) { animation-delay: 1.00s; }
+.hero-card:nth-child(21) { animation-delay: 1.05s; }
+.hero-card:nth-child(22) { animation-delay: 1.10s; }
+.hero-card:nth-child(23) { animation-delay: 1.15s; }
+.hero-card:nth-child(24) { animation-delay: 1.20s; }
+.hero-card:nth-child(25) { animation-delay: 1.25s; }
+.hero-card:nth-child(26) { animation-delay: 1.30s; }
+.hero-card:nth-child(27) { animation-delay: 1.35s; }
+.hero-card:nth-child(28) { animation-delay: 1.40s; }
+.hero-card:nth-child(29) { animation-delay: 1.45s; }
+.hero-card:nth-child(30) { animation-delay: 1.50s; }
