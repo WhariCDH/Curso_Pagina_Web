@@ -232,7 +232,6 @@
     pointer-events: none;
     white-space: nowrap;
     padding: 4px 14px 4px 11px;
-    /* ✅ TODOS DEL MISMO COLOR - DORADO OSCURO */
     background: rgba(45, 38, 31, 0.85);
     border-color: rgba(45, 38, 31, 0.85);
 }
@@ -261,9 +260,6 @@
     overflow: visible;
 }
 
-/* ✅ ELIMINAMOS LOS COLORES DIFERENTES POR ROL */
-/* Ya no se usan role-support, role-warrior, etc para colores */
-
 /* ✅ HOVER - SIN MOVIMIENTO, SOLO BRILLO */
 .hero-card:hover .hero-role-badge {
     filter: brightness(1.15);
@@ -276,7 +272,7 @@
 }
 
 /* ================================================================ */
-/* ⭐ BADGE DE RAREZA CON IMÁGENES                                 */
+/* ⭐ BADGE DE RAREZA CON IMÁGENES (ESTRELLAS GRANDES)             */
 /* ================================================================ */
 
 .hero-rarity-badge {
@@ -296,14 +292,16 @@
     gap: 1px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
-    min-width: 20px;
-    min-height: 20px;
+    /* ✅ EL CONTENEDOR DEBE SER UN POCO MÁS ANCHO QUE LA IMAGEN (60px) */
+    min-width: 68px; 
+    min-height: 28px;
 }
 
 /* ✅ ESTILO PARA LAS IMÁGENES DE ESTRELLAS */
 .hero-rarity-badge .rarity-stars {
-    width: 14px;
-    height: 14px;
+    /* ✅ ANCHO CORRECTO DE LA IMAGEN DE 5 ESTRELLAS */
+    width: 60px; 
+    height: 24px;
     object-fit: contain;
     display: inline-block;
     filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.3));
@@ -330,9 +328,10 @@
 }
 
 .hero-rarity-badge:not(:has(.rarity-stars[src]))::after {
-    content: "⭐";
-    font-size: 12px;
+    content: "⭐⭐⭐⭐⭐";
+    font-size: 14px;
     color: #facc15;
+    letter-spacing: 0px;
 }
 
 /* ================================================================ */
@@ -404,7 +403,7 @@
 }
 
 /* ================================================================ */
-/* 📱 RESPONSIVE                                                   */
+/* 📱 RESPONSIVE (Manteniendo el tamaño grande)                    */
 /* ================================================================ */
 
 /* ✅ Tablets y pantallas medianas */
@@ -418,16 +417,16 @@
         font-size: 2.2rem;
     }
 
-    /* Estrellas más pequeñas */
     .hero-rarity-badge .rarity-stars {
-        width: 12px;
-        height: 12px;
+        width: 48px; /* Un poco más chica en tablet, pero sigue siendo grande */
+        height: 20px;
     }
     
     .hero-rarity-badge {
+        min-width: 54px;
+        min-height: 24px;
         padding: 3px 6px;
-        min-width: 18px;
-        min-height: 18px;
+        border-radius: 10px;
     }
 }
 
@@ -483,19 +482,18 @@
         font-size: 0.5rem;
     }
 
-    /* Estrellas responsive */
     .hero-rarity-badge {
         top: 8px;
         left: 8px;
-        padding: 3px 6px;
-        border-radius: 10px;
-        min-width: 16px;
-        min-height: 16px;
+        min-width: 46px;
+        min-height: 20px;
+        padding: 2px 5px;
+        border-radius: 8px;
     }
     
     .hero-rarity-badge .rarity-stars {
-        width: 11px;
-        height: 11px;
+        width: 40px;
+        height: 18px;
     }
 }
 
@@ -562,19 +560,18 @@
         font-size: 0.4rem;
     }
 
-    /* Estrellas más pequeñas en móvil */
     .hero-rarity-badge {
         top: 6px;
         left: 6px;
-        padding: 2px 5px;
-        border-radius: 8px;
-        min-width: 14px;
-        min-height: 14px;
+        min-width: 38px;
+        min-height: 16px;
+        padding: 2px 4px;
+        border-radius: 6px;
     }
     
     .hero-rarity-badge .rarity-stars {
-        width: 9px;
-        height: 9px;
+        width: 34px; /* Se sigue viendo claramente, sin desaparecer */
+        height: 14px;
     }
 }
 
@@ -598,15 +595,15 @@
     opacity: 0;
 }
 
-.hero-card:nth-child(1) { animation-delay: 0.05s; }
-.hero-card:nth-child(2) { animation-delay: 0.10s; }
-.hero-card:nth-child(3) { animation-delay: 0.15s; }
-.hero-card:nth-child(4) { animation-delay: 0.20s; }
-.hero-card:nth-child(5) { animation-delay: 0.25s; }
-.hero-card:nth-child(6) { animation-delay: 0.30s; }
-.hero-card:nth-child(7) { animation-delay: 0.35s; }
-.hero-card:nth-child(8) { animation-delay: 0.40s; }
-.hero-card:nth-child(9) { animation-delay: 0.45s; }
+.hero-card:nth-child(1)  { animation-delay: 0.05s; }
+.hero-card:nth-child(2)  { animation-delay: 0.10s; }
+.hero-card:nth-child(3)  { animation-delay: 0.15s; }
+.hero-card:nth-child(4)  { animation-delay: 0.20s; }
+.hero-card:nth-child(5)  { animation-delay: 0.25s; }
+.hero-card:nth-child(6)  { animation-delay: 0.30s; }
+.hero-card:nth-child(7)  { animation-delay: 0.35s; }
+.hero-card:nth-child(8)  { animation-delay: 0.40s; }
+.hero-card:nth-child(9)  { animation-delay: 0.45s; }
 .hero-card:nth-child(10) { animation-delay: 0.50s; }
 .hero-card:nth-child(11) { animation-delay: 0.55s; }
 .hero-card:nth-child(12) { animation-delay: 0.60s; }
