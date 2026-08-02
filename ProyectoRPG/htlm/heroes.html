@@ -29,7 +29,7 @@
     </header>
 
     <!-- ============================================ -->
-    <!-- 🧭 NAVEGACIÓN                                -->
+    <!-- 🧭 NAVEGACIÓN (Estructura profesional)        -->
     <!-- ============================================ -->
     <nav>
         <div class="nav-container">
@@ -44,7 +44,21 @@
                 <span></span>
             </button>
 
+            <!-- Menú de escritorio / Móvil -->
             <div class="nav-links" id="navLinks">
+
+                <!-- CABECERA DEL MENÚ MÓVIL (Solo aparece en móviles) -->
+                <div class="nav-mobile-header">
+                    <div class="nav-mobile-brand">
+                        <img src="../Foto/index/Nvegador/Princess.png" alt="Princesita" class="nav-icon">
+                        <span>Kanterbury Days</span>
+                    </div>
+                    <button class="nav-close-btn" id="navCloseBtn" aria-label="Cerrar menú">
+                        ✕
+                    </button>
+                </div>
+
+                <!-- OPCIONES DE NAVEGACIÓN -->
                 <div class="nav-menu-items">
                     <a href="index.html">
                         <img src="../Foto/index/Nvegador/Home.png" alt="Inicio" class="nav-icon"> Inicio
@@ -69,6 +83,7 @@
                     </a>
                 </div>
 
+                <!-- Zona de acciones (Búsqueda y Login) -->
                 <div class="nav-actions">
                     <div class="busqueda">
                         <input type="text" placeholder="Buscar héroe..." id="searchHero">
@@ -83,43 +98,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- ============================================ -->
-    <!-- 📱 SCRIPT: Menú hamburguesa + búsqueda       -->
-    <!-- ============================================ -->
-    <script>
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        navToggle.addEventListener('click', function () {
-            navLinks.classList.toggle('active');
-            this.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                navToggle.classList.remove('active');
-            });
-        });
-
-        function filterHeroes() {
-            const input = document.getElementById('searchHero');
-            const filter = input.value.toLowerCase();
-            const cards = document.querySelectorAll('.hero-card');
-
-            cards.forEach(card => {
-                const name = card.querySelector('.hero-name').textContent.toLowerCase();
-                if (name.includes(filter)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        document.getElementById('searchHero').addEventListener('keyup', filterHeroes);
-    </script>
 
     <!-- ============================================ -->
     <!-- 📚 MAIN: Galería de héroes                   -->
@@ -3687,8 +3665,7 @@
                 <!-- ORALIE - RANGO - OSCURIDAD -->
                 <a href="hero-detail.html?hero=oralie" class="hero-card element-dark">
                     <div class="hero-image">
-                        <img src="../Foto/heroes/Heroe_Dark/Oralie.webp" alt="Oralie"
-                            loading="lazy">
+                        <img src="../Foto/heroes/Heroe_Dark/Oralie.webp" alt="Oralie" loading="lazy">
                         <span class="hero-rarity-badge">
                             <img src="../Foto/heroes/Estrellas/1_comun.png" alt="1 Estrellas" class="rarity-stars">
                         </span>
@@ -3798,8 +3775,7 @@
                 <!-- ZOE - RANGO - OSCURIDAD -->
                 <a href="hero-detail.html?hero=zoe" class="hero-card element-dark">
                     <div class="hero-image">
-                        <img src="../Foto/heroes/Heroe_Dark/Zoe.webp" alt="Zoe"
-                            loading="lazy">
+                        <img src="../Foto/heroes/Heroe_Dark/Zoe.webp" alt="Zoe" loading="lazy">
                         <span class="hero-rarity-badge">
                             <img src="../Foto/heroes/Estrellas/1_comun.png" alt="1 Estrellas" class="rarity-stars">
                         </span>
@@ -3862,7 +3838,7 @@
                     </div>
                 </a>
 
-                
+
                 <!-- MARTY JUNIOR- RANGO - TIERRA -->
                 <a href="hero-detail.html?hero=marty_junior" class="hero-card element-earth">
                     <div class="hero-image">
@@ -3884,38 +3860,114 @@
                         <span class="hero-role-name">Rango</span>
                     </div>
                 </a>
+            </div>
+        </section>
+    </main>
 
-
-
+    <!-- ============================================ -->
+    <!-- 📌 FOOTER: Pie de página (Nuevo diseño)       -->
+    <!-- ============================================ -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Columna 1: Marca -->
+            <div class="footer-column brand">
+                <div class="footer-brand">
+                    <img src="../Foto/index/Nvegador/Princess.png" alt="Princesita" class="footer-icon">
+                    <span>Kanterbury Days</span>
+                </div>
+                <p>La mejor comunidad de Guardian Tales. Encuentra héroes, guías y mucho más.</p>
             </div>
 
-            <!-- ============================================ -->
-            <!-- 📌 FOOTER: Pie de página                     -->
-            <!-- ============================================ -->
-            <footer>
-                <div class="footer-content">
-                    <div class="footer-brand">
-                        <img src="../Foto/index/Nvegador/Princess.png" alt="Princesita" class="footer-icon">
-                        <span>Kanterbury Days</span>
-                    </div>
-                    <p>© 2026 All Rights Reserved by Kanterbury Days!</p>
-                    <div class="footer-links">
-                        <a href="#">Política de Privacidad</a>
-                        <a href="#">Términos de Uso</a>
-                        <a href="#">Contacto</a>
-                    </div>
-                </div>
-            </footer>
+            <!-- Columna 2: Navegación -->
+            <div class="footer-column links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="heroes.html">Héroes</a></li>
+                    <li><a href="trajes.html">Trajes</a></li>
+                </ul>
+            </div>
 
-            <!-- ============================================ -->
-            <!-- 📊 SCRIPT: Contador de héroes                -->
-            <!-- ============================================ -->
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const totalHeroes = document.querySelectorAll('.hero-card').length;
-                    const contador = document.getElementById('totalHeroes');
-                    if (contador) {
-                        contador.textContent = totalHeroes;
-                    }
-                });
-            </script>
+            <!-- Columna 3: Comunidad -->
+            <div class="footer-column links">
+                <h4>Comunidad</h4>
+                <ul>
+                    <li><a href="guias.html">Guías</a></li>
+                    <li><a href="colecciones.html">Colección</a></li>
+                    <li><a href="apoyo.html">Soporte</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 4: Legal -->
+            <div class="footer-column legal">
+                <h4>Legal</h4>
+                <p>© 2026 Kanterbury Days. Todos los derechos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidad</a>
+                    <a href="#">Términos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- 📱 SCRIPT: Menú hamburguesa + búsqueda       -->
+    <!-- ============================================ -->
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navContainer = document.querySelector('.nav-container');
+
+        // Función para ABRIR el menú
+        navToggle.addEventListener('click', function (e) {
+            e.stopPropagation(); // Evita que el click cierre el menú inmediatamente
+            navLinks.classList.toggle('active');
+        });
+
+        // Función para CERRAR el menú al hacer clic en cualquier enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function () {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 🟢 NUEVO: Cerrar el menú si el usuario hace clic en el espacio vacío de la página (fuera del menú)
+        document.addEventListener('click', function (e) {
+            // Si el menú está abierto y el clic NO fue dentro del menú ni en el botón de abrir...
+            if (navLinks.classList.contains('active') &&
+                !navLinks.contains(e.target) &&
+                !navToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Función de filtro de búsqueda
+        function filterHeroes() {
+            const input = document.getElementById('searchHero');
+            const filter = input.value.toLowerCase();
+            const cards = document.querySelectorAll('.hero-card');
+
+            cards.forEach(card => {
+                const name = card.querySelector('.hero-name').textContent.toLowerCase();
+                if (name.includes(filter)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        document.getElementById('searchHero').addEventListener('keyup', filterHeroes);
+
+        // Contador de héroes
+        document.addEventListener('DOMContentLoaded', function () {
+            const totalHeroes = document.querySelectorAll('.hero-card').length;
+            const contador = document.getElementById('totalHeroes');
+            if (contador) {
+                contador.textContent = totalHeroes;
+            }
+        });
+    </script>
+</body>
+
+</html>

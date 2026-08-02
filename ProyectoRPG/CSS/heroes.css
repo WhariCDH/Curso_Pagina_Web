@@ -50,7 +50,7 @@
     font-size: 1.2rem;
 }
 
-/* ✅ GRID DE HÉROES */
+/* ✅ GRID DE HÉROES (Base para PC) */
 .heroes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -92,7 +92,7 @@
 }
 
 .hero-card.element-earth:hover {
-    border-color: #8b5cf6;
+    border-color: #b98746;
     box-shadow: 0 12px 40px rgba(139, 92, 246, 0.25);
 }
 
@@ -292,14 +292,12 @@
     gap: 1px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
-    /* ✅ EL CONTENEDOR DEBE SER UN POCO MÁS ANCHO QUE LA IMAGEN (60px) */
     min-width: 68px; 
     min-height: 28px;
 }
 
 /* ✅ ESTILO PARA LAS IMÁGENES DE ESTRELLAS */
 .hero-rarity-badge .rarity-stars {
-    /* ✅ ANCHO CORRECTO DE LA IMAGEN DE 5 ESTRELLAS */
     width: 60px; 
     height: 24px;
     object-fit: contain;
@@ -403,7 +401,7 @@
 }
 
 /* ================================================================ */
-/* 📱 RESPONSIVE (Manteniendo el tamaño grande)                    */
+/* 📱 RESPONSIVE (Grid y estrellas)                               */
 /* ================================================================ */
 
 /* ✅ Tablets y pantallas medianas */
@@ -418,7 +416,7 @@
     }
 
     .hero-rarity-badge .rarity-stars {
-        width: 48px; /* Un poco más chica en tablet, pero sigue siendo grande */
+        width: 48px;
         height: 20px;
     }
     
@@ -433,7 +431,7 @@
 /* ✅ Móviles grandes */
 @media (max-width: 700px) {
     .heroes-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: 12px;
     }
 
@@ -497,11 +495,11 @@
     }
 }
 
-/* ✅ Móviles pequeños */
+/* ✅ Móviles pequeños (AQUÍ SE VEN 6 PERSONAJES) */
 @media (max-width: 480px) {
     .heroes-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(3, 1fr); /* 3 Columnas fijas = 6 personajes visibles */
+        gap: 8px;
     }
 
     .heroes-header {
@@ -514,7 +512,7 @@
     }
 
     .hero-info {
-        padding: 8px 8px 10px;
+        padding: 8px 4px 10px;
     }
 
     .hero-name {
@@ -530,7 +528,7 @@
     }
 
     .hero-image {
-        padding: 8px;
+        padding: 6px;
     }
 
     .hero-element-badge {
@@ -570,7 +568,7 @@
     }
     
     .hero-rarity-badge .rarity-stars {
-        width: 34px; /* Se sigue viendo claramente, sin desaparecer */
+        width: 34px;
         height: 14px;
     }
 }
@@ -625,3 +623,382 @@
 .hero-card:nth-child(28) { animation-delay: 1.40s; }
 .hero-card:nth-child(29) { animation-delay: 1.45s; }
 .hero-card:nth-child(30) { animation-delay: 1.50s; }
+.hero-card:nth-child(31) { animation-delay: 1.55s; }
+.hero-card:nth-child(32) { animation-delay: 1.60s; }
+.hero-card:nth-child(33) { animation-delay: 1.65s; }
+.hero-card:nth-child(34) { animation-delay: 1.70s; }
+.hero-card:nth-child(35) { animation-delay: 1.75s; }
+.hero-card:nth-child(36) { animation-delay: 1.80s; }
+.hero-card:nth-child(37) { animation-delay: 1.85s; }
+.hero-card:nth-child(38) { animation-delay: 1.90s; }
+.hero-card:nth-child(39) { animation-delay: 1.95s; }
+.hero-card:nth-child(40) { animation-delay: 2.00s; }
+.hero-card:nth-child(41) { animation-delay: 2.05s; }
+.hero-card:nth-child(42) { animation-delay: 2.10s; }
+.hero-card:nth-child(43) { animation-delay: 2.15s; }
+.hero-card:nth-child(44) { animation-delay: 2.20s; }
+.hero-card:nth-child(45) { animation-delay: 2.25s; }
+.hero-card:nth-child(46) { animation-delay: 2.30s; }
+.hero-card:nth-child(47) { animation-delay: 2.35s; }
+.hero-card:nth-child(48) { animation-delay: 2.40s; }
+.hero-card:nth-child(49) { animation-delay: 2.45s; }
+.hero-card:nth-child(50) { animation-delay: 2.50s; }
+.hero-card:nth-child(51) { animation-delay: 2.55s; }
+.hero-card:nth-child(52) { animation-delay: 2.60s; }
+.hero-card:nth-child(53) { animation-delay: 2.65s; }
+.hero-card:nth-child(54) { animation-delay: 2.70s; }
+.hero-card:nth-child(55) { animation-delay: 2.75s; }
+.hero-card:nth-child(56) { animation-delay: 2.80s; }
+.hero-card:nth-child(57) { animation-delay: 2.85s; }
+.hero-card:nth-child(58) { animation-delay: 2.90s; }
+.hero-card:nth-child(59) { animation-delay: 2.95s; }
+.hero-card:nth-child(60) { animation-delay: 3.00s; }
+.hero-card:nth-child(61) { animation-delay: 3.05s; }
+.hero-card:nth-child(62) { animation-delay: 3.10s; }
+.hero-card:nth-child(63) { animation-delay: 3.15s; }
+.hero-card:nth-child(64) { animation-delay: 3.20s; }
+.hero-card:nth-child(65) { animation-delay: 3.25s; }
+.hero-card:nth-child(66) { animation-delay: 3.30s; }
+.hero-card:nth-child(67) { animation-delay: 3.35s; }
+.hero-card:nth-child(68) { animation-delay: 3.40s; }
+.hero-card:nth-child(69) { animation-delay: 3.45s; }
+.hero-card:nth-child(70) { animation-delay: 3.50s; }
+.hero-card:nth-child(71) { animation-delay: 3.55s; }
+.hero-card:nth-child(72) { animation-delay: 3.60s; }
+.hero-card:nth-child(73) { animation-delay: 3.65s; }
+.hero-card:nth-child(74) { animation-delay: 3.70s; }
+.hero-card:nth-child(75) { animation-delay: 3.75s; }
+.hero-card:nth-child(76) { animation-delay: 3.80s; }
+.hero-card:nth-child(77) { animation-delay: 3.85s; }
+.hero-card:nth-child(78) { animation-delay: 3.90s; }
+.hero-card:nth-child(79) { animation-delay: 3.95s; }
+.hero-card:nth-child(80) { animation-delay: 4.00s; }
+.hero-card:nth-child(81) { animation-delay: 4.05s; }
+.hero-card:nth-child(82) { animation-delay: 4.10s; }
+.hero-card:nth-child(83) { animation-delay: 4.15s; }
+.hero-card:nth-child(84) { animation-delay: 4.20s; }
+.hero-card:nth-child(85) { animation-delay: 4.25s; }
+.hero-card:nth-child(86) { animation-delay: 4.30s; }
+.hero-card:nth-child(87) { animation-delay: 4.35s; }
+.hero-card:nth-child(88) { animation-delay: 4.40s; }
+.hero-card:nth-child(89) { animation-delay: 4.45s; }
+.hero-card:nth-child(90) { animation-delay: 4.50s; }
+.hero-card:nth-child(91) { animation-delay: 4.55s; }
+.hero-card:nth-child(92) { animation-delay: 4.60s; }
+.hero-card:nth-child(93) { animation-delay: 4.65s; }
+.hero-card:nth-child(94) { animation-delay: 4.70s; }
+.hero-card:nth-child(95) { animation-delay: 4.75s; }
+.hero-card:nth-child(96) { animation-delay: 4.80s; }
+.hero-card:nth-child(97) { animation-delay: 4.85s; }
+.hero-card:nth-child(98) { animation-delay: 4.90s; }
+.hero-card:nth-child(99) { animation-delay: 4.95s; }
+.hero-card:nth-child(100) { animation-delay: 5.00s; }
+.hero-card:nth-child(101) { animation-delay: 5.05s; }
+.hero-card:nth-child(102) { animation-delay: 5.10s; }
+.hero-card:nth-child(103) { animation-delay: 5.15s; }
+.hero-card:nth-child(104) { animation-delay: 5.20s; }
+.hero-card:nth-child(105) { animation-delay: 5.25s; }
+.hero-card:nth-child(106) { animation-delay: 5.30s; }
+.hero-card:nth-child(107) { animation-delay: 5.35s; }
+.hero-card:nth-child(108) { animation-delay: 5.40s; }
+.hero-card:nth-child(109) { animation-delay: 5.45s; }
+.hero-card:nth-child(110) { animation-delay: 5.50s; }
+.hero-card:nth-child(111) { animation-delay: 5.55s; }
+.hero-card:nth-child(112) { animation-delay: 5.60s; }
+.hero-card:nth-child(113) { animation-delay: 5.65s; }
+.hero-card:nth-child(114) { animation-delay: 5.70s; }
+.hero-card:nth-child(115) { animation-delay: 5.75s; }
+.hero-card:nth-child(116) { animation-delay: 5.80s; }
+.hero-card:nth-child(117) { animation-delay: 5.85s; }
+.hero-card:nth-child(118) { animation-delay: 5.90s; }
+.hero-card:nth-child(119) { animation-delay: 5.95s; }
+.hero-card:nth-child(120) { animation-delay: 6.00s; }
+.hero-card:nth-child(121) { animation-delay: 6.05s; }
+.hero-card:nth-child(122) { animation-delay: 6.10s; }
+.hero-card:nth-child(123) { animation-delay: 6.15s; }
+.hero-card:nth-child(124) { animation-delay: 6.20s; }
+.hero-card:nth-child(125) { animation-delay: 6.25s; }
+.hero-card:nth-child(126) { animation-delay: 6.30s; }
+.hero-card:nth-child(127) { animation-delay: 6.35s; }
+.hero-card:nth-child(128) { animation-delay: 6.40s; }
+.hero-card:nth-child(129) { animation-delay: 6.45s; }
+.hero-card:nth-child(130) { animation-delay: 6.50s; }
+.hero-card:nth-child(131) { animation-delay: 6.55s; }
+.hero-card:nth-child(132) { animation-delay: 6.60s; }
+.hero-card:nth-child(133) { animation-delay: 6.65s; }
+.hero-card:nth-child(134) { animation-delay: 6.70s; }
+.hero-card:nth-child(135) { animation-delay: 6.75s; }
+.hero-card:nth-child(136) { animation-delay: 6.80s; }
+.hero-card:nth-child(137) { animation-delay: 6.85s; }
+.hero-card:nth-child(138) { animation-delay: 6.90s; }
+.hero-card:nth-child(139) { animation-delay: 6.95s; }
+.hero-card:nth-child(140) { animation-delay: 7.00s; }
+.hero-card:nth-child(141) { animation-delay: 7.05s; }
+.hero-card:nth-child(142) { animation-delay: 7.10s; }
+.hero-card:nth-child(143) { animation-delay: 7.15s; }
+.hero-card:nth-child(144) { animation-delay: 7.20s; }
+.hero-card:nth-child(145) { animation-delay: 7.25s; }
+.hero-card:nth-child(146) { animation-delay: 7.30s; }
+.hero-card:nth-child(147) { animation-delay: 7.35s; }
+.hero-card:nth-child(148) { animation-delay: 7.40s; }
+.hero-card:nth-child(149) { animation-delay: 7.45s; }
+.hero-card:nth-child(150) { animation-delay: 7.50s; }
+.hero-card:nth-child(151) { animation-delay: 7.55s; }
+.hero-card:nth-child(152) { animation-delay: 7.60s; }
+.hero-card:nth-child(153) { animation-delay: 7.65s; }
+.hero-card:nth-child(154) { animation-delay: 7.70s; }
+.hero-card:nth-child(155) { animation-delay: 7.75s; }
+.hero-card:nth-child(156) { animation-delay: 7.80s; }
+.hero-card:nth-child(157) { animation-delay: 7.85s; }
+.hero-card:nth-child(158) { animation-delay: 7.90s; }
+.hero-card:nth-child(159) { animation-delay: 7.95s; }
+.hero-card:nth-child(160) { animation-delay: 8.00s; }
+.hero-card:nth-child(161) { animation-delay: 8.05s; }
+.hero-card:nth-child(162) { animation-delay: 8.10s; }
+.hero-card:nth-child(163) { animation-delay: 8.15s; }
+.hero-card:nth-child(164) { animation-delay: 8.20s; }
+.hero-card:nth-child(165) { animation-delay: 8.25s; }
+.hero-card:nth-child(166) { animation-delay: 8.30s; }
+.hero-card:nth-child(167) { animation-delay: 8.35s; }
+.hero-card:nth-child(168) { animation-delay: 8.40s; }
+.hero-card:nth-child(169) { animation-delay: 8.45s; }
+.hero-card:nth-child(170) { animation-delay: 8.50s; }
+
+
+/* ================================================================ */
+/* 📱 MENÚ DESPLEGABLE - NO OCUPA TODA LA PANTALLA (DROPDOWN)      */
+/* ================================================================ */
+
+/* ================================================================ */
+/* 📱 MENÚ DESPLEGABLE - CORREGIDO (SIN BUGEOS Y CIERRE AL TOCAR FUERA) */
+/* ================================================================ */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-mobile-header {
+    display: none; /* Oculto en PC */
+}
+
+@media (max-width: 950px) {
+    
+    /* 🟢 CAMBIO 1: Hacemos que el NAV sea relativo para que el menú no empuje el borde amarillo */
+    .nav-container {
+        position: relative !important;
+    }
+
+    /* 🟢 CAMBIO 2: El menú se posiciona en el espacio vacío, sin empujar */
+    .nav-links {
+        position: absolute;
+        top: 100%; /* Se abre justo debajo de la barra de navegación */
+        left: 0;
+        width: 100%;
+        background: #0f172a;
+        flex-direction: column;
+        padding: 20px 25px;
+        box-sizing: border-box;
+        z-index: 9999;
+        
+        /* Animación de apertura/cierre */
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    }
+
+    .nav-links.active {
+        max-height: 600px;
+        opacity: 1;
+    }
+
+    .nav-mobile-header {
+        display: none !important; 
+    }
+
+    .nav-menu-items {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .nav-menu-items a {
+        width: 100%;
+        padding: 12px 15px;
+        border-radius: 10px;
+        color: #e2e8f0;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        box-sizing: border-box;
+    }
+
+    .nav-menu-items a:hover,
+    .nav-menu-items a.active {
+        background: rgba(250, 204, 21, 0.15);
+        color: #facc15;
+    }
+
+    /* El buscador y login van al fondo del menú */
+    .nav-actions {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        gap: 10px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 15px;
+    }
+
+    .nav-actions .busqueda {
+        width: 100%;
+        display: flex;
+        border-radius: 10px;
+        overflow: hidden;
+        background: rgba(255,255,255,0.08);
+    }
+    
+    .nav-actions .busqueda input {
+        flex: 1;
+        padding: 10px 15px;
+        background: transparent;
+        border: none;
+        color: #fff;
+        outline: none;
+        font-size: 0.9rem;
+    }
+
+    .nav-actions .busqueda button {
+        padding: 0 15px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-actions .login {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+}
+
+
+/* ================================================================ */
+/* 🦶 NUEVO PIE DE PÁGINA (FOOTER)                                 */
+/* ================================================================ */
+
+.site-footer {
+    background: #020617; /* Fondo azul marino oscuro */
+    color: #94a3b8;
+    padding: 50px 20px 30px;
+    margin-top: 60px;
+    border-top: 2px solid rgba(250, 204, 21, 0.1);
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.footer-brand img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-brand span {
+    color: #facc15;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.footer-column h4 {
+    color: #facc15;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #ffffff;
+    padding-left: 4px;
+}
+
+.footer-column p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #facc15;
+}
+
+/* 📱 RESPONSIVE DEL FOOTER */
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-brand {
+        justify-content: center;
+    }
+    .footer-links {
+        justify-content: center;
+    }
+}
